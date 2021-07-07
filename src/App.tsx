@@ -1,7 +1,12 @@
 import Routes from "./routes";
 
 const App = () => {
-  return <Routes></Routes>;
+
+  return (
+    <>
+      <Routes></Routes>
+    </>
+      )
 };
 
 export default App;
