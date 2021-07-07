@@ -6,6 +6,6 @@ export const MenuHeaderDiv = styled.div`
   justify-content: space-evenly;
 
   a {
-    font-size: 36px;
+    font-size: 24px;
   }
 `;
