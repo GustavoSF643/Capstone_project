@@ -5,20 +5,21 @@ export const UserMenuDiv = styled.div`
   flex-direction: column;
   background-color: var(--third);
   width: 233px;
-  height: 230px;
+  height: 223px;
   align-items: center;
-  /* justify-content: space-evenly; */
 
   h3 {
     font-size: 24px;
+    font-family: var(--font-family-second);
     color: white;
     border-bottom: 1px solid white;
     width: 170px;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
   }
 
   a {
+    font-family: var(--font-family-third);
     color: white;
     font-size: 18px;
     display: flex;
@@ -27,5 +28,9 @@ export const UserMenuDiv = styled.div`
     padding: 10px;
     width: 100%;
     border-bottom: 1px solid white;
+  }
+
+  & :last-child {
+    border-bottom: none;
   }
 `;
