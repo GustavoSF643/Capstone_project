@@ -1,9 +1,13 @@
 import Routes from "./routes";
+import ButtonFavorites from "./components/Atoms/ButtonFavorites";
 
 const App = () => {
   return (
+    <>
       <Routes></Routes>
-      )
+      <ButtonFavorites></ButtonFavorites>
+    </>
+  );
 };
 
 export default App;
