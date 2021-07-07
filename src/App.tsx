@@ -5,7 +5,6 @@ const App = () => {
   return (
     <>
       <Routes></Routes>
-      <ButtonFavorites></ButtonFavorites>
     </>
   );
 };
