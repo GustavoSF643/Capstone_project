@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	a {
+		text-decoration: none;
 		font-family: 'Cinzel', serif;
 	}
 
