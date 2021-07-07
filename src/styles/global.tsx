@@ -13,7 +13,10 @@ const GlobalStyle = createGlobalStyle`
     --secondary: #EFEEF1;
     --third: #694B3C;
     --fourth: #7A3B6C;
-    --fifth: #E8667D
+    --fifth: #E8667D;
+    --font-family-primary: 'Cinzel', serif;
+    --font-family-second: 'Taviraj', serif;
+    --font-family-third: 'Itim', cursive;
   }
   body {
     background-color: var(--secondary);
@@ -25,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
   }
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
+    font-family: var(----font-family-second);
   }
   button {
     cursor: pointer;
@@ -33,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
 
 	a {
 		text-decoration: none;
-		font-family: 'Cinzel', serif;
+		font-family: var(--font-family-primary);
 	}
 
 
