@@ -5,27 +5,48 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
+  position: relative;
   width: 100%;
   border-radius: 10px;
-  border: 1px solid ${props => props.isErr ? "tomato" : '#694B3C'};
-  padding: 8px 8px 10px 26px;
-  box-sizing: border-box;
+  border: 1px solid ${props => props.isErr ? "tomato" : `var(--third)`};
+  padding: 0 5px 5px 5px;
   height: 80px;
 
   > p {
     margin: 7px 0;
-    font-size: 24px;
+    font-size: 17px;
+    font-family: var(--font-family-third);
+    color: var(--third);
   }
 
   > input {
+    margin-top: 10px;
     width: 100%;
     border: none;
-    margin: 0;
-    padding: 0;
-    font-size: 18px;
+    font-size: 15px;
   }
 
-  p:last-child {
-    color: tomato;
+  > span {
+    color: var(--err);
+    position: relative;
+    top: 20px;
+  }
+
+  @media (min-width: 768px) {
+    padding: 8px 8px 10px 26px;
+
+    > p {
+      font-size: 24px;
+    }
+
+    > input {
+      font-size: 18px;
+      margin-top: 0px;
+
+    }
+
+    > span {
+      top: 10px;
+    }
   }
 `;
