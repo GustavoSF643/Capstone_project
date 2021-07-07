@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Button = styled.button`
   display: inline-block;
   height: 55px;
   padding: 12px 12px;
