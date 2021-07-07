@@ -5,6 +5,10 @@ const GlobalStyle = createGlobalStyle`
 
 	}
 
+	a {
+		font-family: 'Cinzel', serif;
+	}
+
 `;
 
 export default GlobalStyle;
