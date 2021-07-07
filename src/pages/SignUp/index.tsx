@@ -29,8 +29,9 @@ const schema = yup.object().shape({
 });
 
 const SignUp = () => {
-  const onSubmit = (data : SingUpProps) => {
+  const onSubmit = (data : SingUpProps, reset : any) => {
     console.log(data)
+    reset();
   }
 
   return (
@@ -38,14 +39,14 @@ const SignUp = () => {
       <FakeBackground>
         <p>Sign Up</p>
         <Form onSubmit={onSubmit} schema={schema}>
-          <Input name="fullName" label="Nome Completo"/>
-          <Input name="email" label="Email"/>
-          <Input name="password" label="Senha"/>
-          <Input name="passwordConfirmation" label="Confirmar Senha"/>
-          <Input name="age" label="Idade" type="number"/>
-          <Input name="district" label="Bairro" />
-          <Input name="city" label="Cidade" />
-          <Input name="state" label="Estado" />
+          <Input name="fullName" label="Nome Completo" placeholder="Preencher"/>
+          <Input name="email" label="Email" placeholder="Preencher"/>
+          <Input name="password" label="Senha" placeholder="Preencher"/>
+          <Input name="passwordConfirmation" label="Confirmar Senha" placeholder="Preencher"/>
+          <Input name="age" label="Idade" type="number" placeholder="Preencher"/>
+          <Input name="district" label="Bairro" placeholder="Preencher"/>
+          <Input name="city" label="Cidade" placeholder="Preencher"/>
+          <Input name="state" label="Estado" placeholder="Preencher"/>
 
           <button type="submit">Enviar</button>
         </Form>

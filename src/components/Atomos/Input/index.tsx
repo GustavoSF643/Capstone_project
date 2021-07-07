@@ -27,7 +27,7 @@ const Input = ({ register, name, label, err, ...rest }: InputProps) => {
       <input 
         {...register(name)} 
         {...rest} 
-        placeholder="Preencher"
+        // placeholder="Preencher"
       />
       <span>{err[`${name}`]?.message}</span>
     </Container>
