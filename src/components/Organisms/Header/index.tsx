@@ -4,6 +4,7 @@ import { HeaderDiv, LogoDiv, UserImgDiv, UserMenuDiv } from "./style";
 import LogoHeader from "../../../assets/LogoHeader.png";
 import Vector from "../../../assets/Vector.png";
 import { useState } from "react";
+import LoginModal from "../../Molecules/LoginModal";
 
 const Header = () => {
   const [userMenuOpened, setUsermenuOpened] = useState(false);
@@ -22,6 +23,10 @@ const Header = () => {
       <UserImgDiv onClick={() => setUsermenuOpened(!userMenuOpened)}>
         <img src={Vector} />
       </UserImgDiv>
+      <LoginModal
+        modalOpened={userMenuOpened}
+        setModalOpened={setUsermenuOpened}
+      />
     </HeaderDiv>
   );
 };

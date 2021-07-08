@@ -27,8 +27,11 @@ export const LoginDiv = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  text-align: center;
-  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px;
 
   h3 {
     font-size: 48px;
@@ -40,4 +43,10 @@ export const Xdiv = styled.div`
   position: absolute;
   top: 10px;
   right: 10px;
+  cursor: pointer;
+`;
+
+export const LoginFormDiv = styled.div`
+  display: block;
+  margin: auto 0;
 `;
