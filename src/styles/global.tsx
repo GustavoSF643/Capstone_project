@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     --third: #694B3C;
     --fourth: #7A3B6C;
     --fifth: #E8667D;
+    --sixth: rgb(255, 255, 255, 0.4);
     --font-family-primary: 'Cinzel', serif;
     --font-family-second: 'Taviraj', serif;
     --font-family-third: 'Itim', cursive;
