@@ -17,7 +17,7 @@ import { useHistory } from "react-router-dom";
 const Header = () => {
   const [userMenuOpened, setUsermenuOpened] = useState(false);
   const [modalOpened, setModalOpened] = useState(false);
-  const [token] = useState(localStorage.getItem("token") || null);
+  const [token] = useState(localStorage.getItem("@petMacher:token") || null);
 
   const history = useHistory();
 

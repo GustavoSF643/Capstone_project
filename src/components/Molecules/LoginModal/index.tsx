@@ -30,9 +30,10 @@ const LoginModal = ({ modalOpened, setModalOpened }: LoginModalProps) => {
       .then((response) => {
         localStorage.setItem(
           "@petMacher:token",
-          JSON.stringify(response.data.token)
+          JSON.stringify(response.data.accessToken)
         );
         reset();
+        location.reload();
       })
       .catch((err) => {
         toast.info(err.response.data);
