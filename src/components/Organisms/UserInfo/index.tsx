@@ -1,9 +1,10 @@
-import { InfoDiv, UserInfoDiv, InfoImageDiv } from "./style";
+import { InfoDiv, UserInfoDiv, InfoImageDiv, ButtonDiv } from "./style";
 import Perfil from "../../../assets/perfil.png";
 import { useState } from "react";
 import { useEffect } from "react";
 import api from "../../../services/api";
 import { User } from "../../../types/User";
+import LargeButton from "../../Atomos/LargeButton";
 
 interface userInfoProps {
   userId: string;
@@ -39,6 +40,9 @@ const UserInfo = ({ userId }: userInfoProps) => {
         <p>Cidade:{user.info && user.info.city}</p>
         <p>Bairro:{user.info && user.info.district}</p>
       </InfoDiv>
+      <ButtonDiv>
+        <LargeButton label="EDITAR" />
+      </ButtonDiv>
     </UserInfoDiv>
   );
 };
