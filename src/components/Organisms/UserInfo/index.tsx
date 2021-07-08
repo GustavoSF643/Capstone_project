@@ -10,10 +10,14 @@ interface userInfoProps {
 }
 
 const UserInfo = ({ userId }: userInfoProps) => {
-  const [user, setUser] = useState<any>({});
-  const [token] = useState(localStorage.getItem("token"));
+  const [user, setUser] = useState<User>(Object);
 
   useEffect(() => {
+    const token = localStorage.getItem("@petMacher:token");
+    if (token) {
+      JSON.parse(token);
+    }
+    console.log(token);
     api
       .get(`users/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -31,9 +35,9 @@ const UserInfo = ({ userId }: userInfoProps) => {
         <p>Email:{user.email}</p>
         <p>Telefone:{user.phone}</p>
         <p>Idade:{user.age}</p>
-        <p>Estado:{user.info.state}</p>
-        <p>Cidade:{user.info.street}</p>
-        <p>Bairro:{user.info.district}</p>
+        <p>Estado:{user.info && user.info.state}</p>
+        <p>Cidade:{user.info && user.info.city}</p>
+        <p>Bairro:{user.info && user.info.district}</p>
       </InfoDiv>
     </UserInfoDiv>
   );

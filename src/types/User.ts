@@ -1,7 +1,7 @@
 export interface UserInfo {
   district: string;
   state: string;
-  street: string;
+  city: string;
 }
 
 export interface User {
