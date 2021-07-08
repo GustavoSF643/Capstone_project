@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
     --font-family-primary: 'Cinzel', serif;
     --font-family-second: 'Taviraj', serif;
     --font-family-third: 'Itim', cursive;
+    --err: tomato;
   }
   body {
     background-color: var(--secondary);

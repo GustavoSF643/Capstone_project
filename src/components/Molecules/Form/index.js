@@ -4,12 +4,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 
 const Form = ({ schema, children, onSubmit }) => {
-  const { handleSubmit, register, formState: { errors } } = useForm({
+  const { handleSubmit, register, formState: { errors }, reset } = useForm({
     resolver: yupResolver(schema)
   });
 
   return (
-    <Container onSubmit={handleSubmit(onSubmit)}>
+    <Container onSubmit={handleSubmit(data => onSubmit(data, reset))}>
       {React.Children.map(children, child => {
         return child.props.name
         ? React.createElement(child.type, {

@@ -20,16 +20,14 @@ interface InputProps {
 
 const Input = ({ register, name, label, err, ...rest }: InputProps) => {
   const isErr = !!err[`${name}`];
-  
   return (
     <Container isErr={isErr}>
       <p>{label}</p>
       <input 
         {...register(name)} 
         {...rest} 
-        placeholder="Preencher"
       />
-      <p>{err[`${name}`]?.message}</p>
+      <span>{err[`${name}`]?.message}</span>
     </Container>
     );
 }
