@@ -28,10 +28,7 @@ const LoginModal = ({ modalOpened, setModalOpened }: LoginModalProps) => {
     api
       .post("login", data)
       .then((response) => {
-        localStorage.setItem(
-          "@petMacher:token",
-          JSON.stringify(response.data.accessToken)
-        );
+        localStorage.setItem("@petMacher:token", response.data.accessToken);
         reset();
         location.reload();
       })
