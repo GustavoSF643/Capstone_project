@@ -12,20 +12,22 @@ interface userInfoProps {
 
 const UserInfo = ({ userId }: userInfoProps) => {
   const [user, setUser] = useState<User>(Object);
+  const [token] = useState<string | null>(
+    localStorage.getItem("@petMacher:token")
+  );
 
   useEffect(() => {
-    const token = localStorage.getItem("@petMacher:token");
     if (token) {
-      JSON.parse(token);
+      api
+        .get(`users/${userId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((user: any) => setUser(user.data))
+        .catch((err) => console.error(err));
     }
-    console.log(token);
-    api
-      .get(`users/${userId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((user: any) => setUser(user))
-      .catch((err) => console.error(err));
-  }, []);
+  }, [token]);
   return (
     <UserInfoDiv>
       <InfoImageDiv>
