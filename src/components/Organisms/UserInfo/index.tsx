@@ -15,15 +15,12 @@ const UserInfo = ({ userId }: userInfoProps) => {
 
   useEffect(() => {
     const token = localStorage.getItem("@petMacher:token");
-    if (token) {
-      JSON.parse(token);
-    }
-    console.log(token);
+
     api
       .get(`users/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((user: any) => setUser(user))
+      .then((user: any) => setUser(user.data))
       .catch((err) => console.error(err));
   }, []);
   return (
