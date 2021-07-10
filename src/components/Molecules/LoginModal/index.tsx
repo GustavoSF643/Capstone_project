@@ -56,7 +56,7 @@ const LoginModal = ({ modalOpened, setModalOpened }: LoginModalProps) => {
               placeholder="Preencher"
               type="password"
             />
-            <LargeButton label="LOGIN" />
+            <LargeButton >LOGIN</LargeButton>
           </Form>
         </LoginFormDiv>
       </LoginDiv>

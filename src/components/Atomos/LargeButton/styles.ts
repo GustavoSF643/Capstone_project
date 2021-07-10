@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const LargeButtonStyled = styled.button`
-    width: 450px; 
+    width: 250px; 
     height: 70px;
     background-color: #694B3C; 
     color: white; 
@@ -15,5 +15,8 @@ export const LargeButtonStyled = styled.button`
       width: 46px; 
       height: 40px;  
     }
-`;
 
+    @media (min-width: 768px) {
+      width: 450px; 
+    }
+`;
