@@ -1,13 +1,18 @@
 import styled from "styled-components";
-import DogImageCard from "../../../assets/dogcard.jpg";
 
-export const Card = styled.div`
+interface CardProps {
+  img: string
+}
+
+export const Card = styled.div<CardProps>`
   height: 480px;
   width: 290px;
   position: relative;
   cursor: pointer;
-  background-image: url(${DogImageCard});
-  background-size: 100% 100%;
+  background-image: url(${props => props.img});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: 16px;
   overflow: hidden;
   background-position-y: -15px;

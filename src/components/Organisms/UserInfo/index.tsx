@@ -43,7 +43,7 @@ const UserInfo = ({ userId }: userInfoProps) => {
         <p>Bairro:{user.info && user.info.district}</p>
       </InfoDiv>
       <ButtonDiv>
-        <LargeButton label="EDITAR" />
+        <LargeButton>EDITAR</LargeButton>
       </ButtonDiv>
     </UserInfoDiv>
   );

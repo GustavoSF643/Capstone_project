@@ -1,17 +1,18 @@
 import { LargeButtonStyled } from "./styles";
 import patinha_botao from "../../../assets/patinha_botao.png"; 
+import { ReactNode } from "react";
 
 interface InputProps { 
-    label: string,
-  }
+    children: ReactNode;
+    [x:string]: any;
+}
   
-  const LargeButton = ({ label }: InputProps) => {
-    
-    return (
-        <LargeButtonStyled>
-           {label} <img src={patinha_botao} />     
-        </LargeButtonStyled>
-    )    
-  }
+const LargeButton = ({ children }: InputProps) => {
+  return (
+      <LargeButtonStyled>
+          {children} <img src={patinha_botao} />     
+      </LargeButtonStyled>
+  )    
+}
   
-  export default LargeButton;
+export default LargeButton;

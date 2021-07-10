@@ -43,7 +43,7 @@ const Header = () => {
             setModalOpened={setModalOpened}
           />
           <RegisterDiv>
-            <RegisterButton onClick={() => history.push("/register")}>
+            <RegisterButton onClick={() => history.push("/signup")}>
               REGISTRAR
             </RegisterButton>
             <a onClick={() => setModalOpened(true)}>LOGIN</a>
