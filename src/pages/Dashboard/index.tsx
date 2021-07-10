@@ -10,7 +10,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import api from "./../../services/api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CardPet from "./../../components/Molecules/CardPet";
 import { PetProps } from "./../../types/DecodedProps" ;
 
@@ -37,6 +37,16 @@ const Dashboard = () => {
     resolver: yupResolver(schema)
   });
 
+  const firstLoad = () => {
+    api.get(`pets`)
+      .then(response => setPets(response.data))
+      .catch(err => console.log(err, err.response))
+  };
+
+  useEffect(() => {
+    firstLoad();
+  }, []);
+  
   const onSubmit = (data: IFormInputs) => {
     let str = "";
     let count = true;
