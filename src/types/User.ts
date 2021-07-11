@@ -13,4 +13,5 @@ export interface User {
   phone: number;
   info: UserInfo;
   id: number;
+  img: string;
 }
