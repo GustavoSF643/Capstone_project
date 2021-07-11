@@ -18,9 +18,11 @@ const GlobalStyle = createGlobalStyle`
     --seventh: #8b8b8b;
     --eighth: rgb(122, 59, 108, 0.15);
     --ninth: rgb(122, 59, 108, 0.75);
+    --tenth: #b2b2b2;
     --font-family-primary: 'Cinzel', serif;
     --font-family-second: 'Taviraj', serif;
     --font-family-third: 'Itim', cursive;
+    --font-family-fourth: 'Roboto', sans-serif;
     --err: tomato;
   }
   body {
