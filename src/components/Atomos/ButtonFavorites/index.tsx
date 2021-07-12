@@ -11,13 +11,7 @@ const ButtonFavorites = () => {
   };
 
   return (
-    <Button onClick={addLike}>
-      {like ? (
-        <FaRegHeart style={{ color: "var(--fifth)" }} />
-      ) : (
-        <FaHeart style={{ color: "var(--fifth)" }} />
-      )}
-    </Button>
+    <Button onClick={addLike}>{like ? <FaRegHeart /> : <FaHeart />}</Button>
   );
 };
 export default ButtonFavorites;
