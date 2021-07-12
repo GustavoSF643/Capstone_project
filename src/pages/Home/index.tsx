@@ -1,11 +1,12 @@
 import Footer from "../../components/Molecules/Footer";
 import Header from "../../components/Organisms/Header";  
+import HomePanel1 from "../../components/Molecules/HomePanel1"; 
 
 const Home = () => {
   return (
     <div> 
-      
-      <Footer/>
+      <Header/> 
+      <HomePanel1/>
     </div>
   );
 };
