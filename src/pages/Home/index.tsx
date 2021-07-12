@@ -3,7 +3,7 @@ import Header from "../../components/Organisms/Header";
 
 const Home = () => {
   return (
-    <div>
+    <div> 
       
       <Footer/>
     </div>
