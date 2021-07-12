@@ -5,6 +5,16 @@ export interface DecodedProps {
   sub: string;
 }
 
+export interface InterestedPeople {
+  city: string;
+  contact: string;
+  district: string;
+  state: string;
+  email: string;
+  id: number;
+  img: string;
+}
+
 export interface PetProps {
   name: string;
   type: string;
@@ -17,6 +27,7 @@ export interface PetProps {
   health: string;
   currentState: number;
   img: string;
+  interestedPeople: InterestedPeople[];
   about: {
     description: string;
     behavior: string;

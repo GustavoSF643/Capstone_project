@@ -2,11 +2,19 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import api from "../../services/api";
-import { PetInfoDiv, UserDiv, PetInfoCardDiv, Container } from "./style";
+import {
+  PetInfoDiv,
+  UserDiv,
+  PetInfoCardDiv,
+  Container,
+  InterestedPeopleDiv,
+  ContainerPeoples,
+} from "./style";
 import PetInfoCard from "../../components/Molecules/PetInfoCard";
-import { PetProps } from "../../types/DecodedProps";
+import { DecodedProps, PetProps } from "../../types/DecodedProps";
 import { MdPlace, MdEmail } from "react-icons/md";
 import { GiSmartphone } from "react-icons/gi";
+import jwt_decode from "jwt-decode";
 
 interface ParamProps {
   petId: string;
@@ -15,6 +23,10 @@ interface ParamProps {
 const PetInfo = () => {
   const { petId }: ParamProps = useParams();
   const [pet, setPet] = useState<PetProps>(Object);
+  const [token] = useState<string | null>(
+    JSON.stringify(localStorage.getItem("@petMacher:token") || null)
+  );
+  const [owner, setOwner] = useState<boolean>(true);
 
   useEffect(() => {
     api
@@ -23,32 +35,50 @@ const PetInfo = () => {
       .catch((err) => console.error(err));
   }, [petId]);
 
+  useEffect(() => {
+    if (token) {
+      const decode: DecodedProps = jwt_decode(token);
+      if (parseInt(decode.sub) === pet.userId) {
+        setOwner(true);
+      }
+    }
+  }, [pet, token]);
+
   return (
     <Container>
       <PetInfoDiv>
         <PetInfoCardDiv>
           <PetInfoCard pet={pet}></PetInfoCard>
         </PetInfoCardDiv>
-        {pet.userInfo && (
-          <UserDiv>
-            <img src={pet.userInfo.img} />
-            <h2>{pet.userInfo.fullName}</h2>
-            <p>
-              <MdPlace />
-              {pet.userInfo.city},{pet.userInfo.state}
-            </p>
+        <ContainerPeoples>
+          {pet.userInfo && (
+            <UserDiv>
+              <img src={pet.userInfo.img} />
+              <h2>{pet.userInfo.fullName}</h2>
+              <p>
+                <MdPlace />
+                {pet.userInfo.city},{pet.userInfo.state}
+              </p>
 
-            <p>
-              <MdEmail />
-              {pet.userInfo.contact}
-            </p>
+              <p>
+                <MdEmail />
+                {pet.userInfo.contact}
+              </p>
 
-            <p>
-              <GiSmartphone />
-              {pet.userInfo.email}
-            </p>
-          </UserDiv>
-        )}
+              <p>
+                <GiSmartphone />
+                {pet.userInfo.email}
+              </p>
+            </UserDiv>
+          )}
+
+          {owner && (
+            <InterestedPeopleDiv>
+              {pet.interestedPeople &&
+                pet.interestedPeople.map((people) => console.log(people))}
+            </InterestedPeopleDiv>
+          )}
+        </ContainerPeoples>
       </PetInfoDiv>
     </Container>
   );
