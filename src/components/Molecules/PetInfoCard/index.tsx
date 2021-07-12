@@ -30,7 +30,8 @@ const PetInfoCard = ({ pet }: PetInfoCardProps) => {
           <div>
             <h1>{pet.name}</h1>
             <p>
-              {pet.userInfo.city}, {pet.userInfo.state}
+              {pet.userInfo && pet.userInfo.city},{" "}
+              {pet.userInfo && pet.userInfo.state}
             </p>
             <p>bairro</p>
           </div>
@@ -47,16 +48,16 @@ const PetInfoCard = ({ pet }: PetInfoCardProps) => {
           <About>
             <h2>Sobre</h2>
             <h6>CARACTERISTICAS</h6>
-            <p>{pet.about.description}</p>
+            <p>{pet.about && pet.about.description}</p>
             <h6>SAUDE</h6>
             <p>{pet.health}</p>
             <h6>COMPORTAMENTO</h6>
-            <p>{pet.about.behavior}</p>
+            <p>{pet.about && pet.about.behavior}</p>
           </About>
           <hr />
           <History>
             <h2>Historia</h2>
-            <p>{pet.about.history}</p>
+            <p>{pet.about && pet.about.history}</p>
           </History>
           <hr />
         </TextContainer>

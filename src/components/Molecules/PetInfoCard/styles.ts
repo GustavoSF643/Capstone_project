@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 1086px;
-  height: 1512px;
+  width: 100%;
+  height: 100%;
   background-color: #ffffff;
   color: #393939;
   cursor: pointer;
@@ -12,12 +12,6 @@ export const Container = styled.div`
   align-items: center;
   border-radius: 20px;
   margin: 0 auto;
-
-  img {
-    width: 937px;
-    height: 393px;
-    border-radius: 50px;
-  }
 `;
 
 export const TextContainer = styled.div`
@@ -31,8 +25,8 @@ export const TextContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
-  width: 923px;
-  height: 900px;
+  width: 100%;
+  height: 100%;
   font-size: 18px;
 
   h1 {
@@ -41,7 +35,7 @@ export const TextContainer = styled.div`
 
   hr {
     height: 0px;
-    width: 923px;
+    width: 100%;
     color: #808080;
     border: 1px solid rgba(128, 128, 128, 0.42);
     margin: 0 auto;
@@ -51,12 +45,12 @@ export const TextContainer = styled.div`
 export const Attributes = styled.div`
   display: flex;
   flex-direction: row;
-  width: 923px;
+  width: 100%;
   justify-content: space-around;
 `;
 
 export const About = styled.div`
-  width: 923px;
+  width: 100%;
 
   h2 {
     font-size: 36px;
@@ -67,7 +61,7 @@ export const About = styled.div`
 `;
 
 export const History = styled.div`
-  width: 923px;
+  width: 100%;
   h2 {
     font-size: 36px;
   }
@@ -78,10 +72,17 @@ export const History = styled.div`
 
 export const ImageContainer = styled.div`
   position: relative;
-  width: 937px;
-  height: 393px;
-  border-radius: 50px;
+  width: 90%;
+  height: 40%;
   margin-top: 40px;
+  border-radius: 50px;
+  overflow: hidden;
+
+  & > img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
 `;
 
 export const ButtonContainer = styled.div`
