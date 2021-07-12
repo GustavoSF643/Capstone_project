@@ -5,11 +5,12 @@ import { ReactNode } from "react";
 interface InputProps {
   children: ReactNode;
   [x: string]: any;
+  onClick?: () => void;
 }
 
-const LargeButton = ({ children }: InputProps) => {
+const LargeButton = ({ children, onClick }: InputProps) => {
   return (
-    <LargeButtonStyled>
+    <LargeButtonStyled onClick={onClick}>
       {children} <img src={patinha_botao} />
     </LargeButtonStyled>
   );
