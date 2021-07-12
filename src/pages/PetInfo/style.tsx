@@ -2,7 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 90vw;
+  min-width: 900px;
   margin: 120px auto;
+`;
+
+export const ContainerPeoples = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 25%;
 `;
 
 export const PetInfoDiv = styled.div`
@@ -14,12 +21,14 @@ export const PetInfoDiv = styled.div`
 
 export const PetInfoCardDiv = styled.div`
   width: 70%;
+  min-width: 600px;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
 `;
 
 export const UserDiv = styled.div`
-  width: 25%;
+  width: 100%;
+  min-width: 250px;
   height: 300px;
   background-color: white;
   position: relative;
@@ -60,4 +69,14 @@ export const UserDiv = styled.div`
     border-top: 1px solid var(--tenth);
     padding: 10px;
   }
+`;
+
+export const InterestedPeopleDiv = styled.div`
+  background-color: white;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  width: 100%;
+  height: 500px;
+  min-width: 250px;
+  margin-top: 50px;
 `;

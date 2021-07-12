@@ -45,7 +45,7 @@ const User = () => {
       const decode: DecodedProps = jwt_decode(token);
       setUserId(decode.sub);
     }
-  }, []);
+  }, [token]);
 
   const changeMenu = (name: string) => {
     if (name === "info") {
