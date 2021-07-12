@@ -7,19 +7,35 @@ const UserMenu = () => {
   return (
     <UserMenuDiv>
       <h3> Usuário </h3>
-      <a onClick={() => history.push("/user", { message: "info" })}>
+      <a
+        onClick={() => {
+          history.push("/user", { message: "info" });
+          location.reload();
+        }}
+      >
         Informações
       </a>
-      <a onClick={() => history.push("/user", { message: "favorites" })}>
+      <a
+        onClick={() => {
+          history.push("/user", { message: "favorites" });
+          location.reload();
+        }}
+      >
         Favoritos
       </a>
-      <a onClick={() => history.push("/user", { message: "pets" })}>
+      <a
+        onClick={() => {
+          history.push("/user", { message: "pets" });
+          location.reload();
+        }}
+      >
         Seus pets
       </a>
       <a
         onClick={() => {
           localStorage.clear();
           history.push("/");
+          location.reload();
         }}
       >
         Sair
