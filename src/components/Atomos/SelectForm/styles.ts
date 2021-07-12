@@ -4,26 +4,24 @@ interface ContainerProps {
   isErr: boolean
 }
 
+
 export const Container = styled.div<ContainerProps>`
   position: relative;
   width: 100%;
   border-radius: 10px;
   border: 1px solid ${props => props.isErr ? "tomato" : `var(--third)`};
   padding: 0 5px 5px 5px;
-  height: 80px;
-
+  
   > p {
     margin: 7px 0;
     font-size: 17px;
     font-family: var(--font-family-third);
     color: var(--third);
   }
-
-  > input {
-    margin-top: 10px;
-    width: 100%;
-    border: none;
-    font-size: 15px;
+  
+  > h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
   }
 
   > span {
@@ -39,13 +37,25 @@ export const Container = styled.div<ContainerProps>`
       font-size: 24px;
     }
 
-    > input {
-      font-size: 18px;
-      margin-top: 0px;
-    }
-
     > span {
       top: 10px;
     }
+  }
+
+`;
+
+export const SelectStyles = styled.select`
+  width: 100%;
+  height: 50px;
+
+  border: none;
+  background-color: var(--white);
+  font-size: 18px;
+  color: black;
+  font-family: var(--font-family-third);
+  color: var(--third);
+
+  > option {
+
   }
 `;

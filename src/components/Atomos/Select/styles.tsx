@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   > h3 {
-    font-size: 20px;
+    font-size: 24px;
     margin-bottom: 10px;
   }
 

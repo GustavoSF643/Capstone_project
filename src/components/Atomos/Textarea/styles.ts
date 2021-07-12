@@ -5,12 +5,13 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-  position: relative;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
   border-radius: 10px;
   border: 1px solid ${props => props.isErr ? "tomato" : `var(--third)`};
   padding: 0 5px 5px 5px;
-  height: 80px;
 
   > p {
     margin: 7px 0;
@@ -19,17 +20,8 @@ export const Container = styled.div<ContainerProps>`
     color: var(--third);
   }
 
-  > input {
-    margin-top: 10px;
-    width: 100%;
-    border: none;
-    font-size: 15px;
-  }
-
   > span {
-    color: var(--err);
-    position: relative;
-    top: 20px;
+    color: tomato;
   }
 
   @media (min-width: 768px) {
@@ -39,13 +31,18 @@ export const Container = styled.div<ContainerProps>`
       font-size: 24px;
     }
 
-    > input {
-      font-size: 18px;
-      margin-top: 0px;
-    }
-
     > span {
       top: 10px;
     }
+  }
+`;
+
+export const TextAreaStyles = styled.textarea`
+  height: 271px;
+  font-size: 16px;
+  border: none;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
   }
 `;
