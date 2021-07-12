@@ -16,10 +16,11 @@ interface InputProps {
   label?: string,
   err?: any,
   [x:string]: any;
-}
+};
 
 const Input = ({ register, name, label, err, ...rest }: InputProps) => {
   const isErr = !!err[`${name}`];
+  
   return (
     <Container isErr={isErr}>
       <p>{label}</p>

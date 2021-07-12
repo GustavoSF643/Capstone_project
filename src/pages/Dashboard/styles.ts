@@ -7,7 +7,6 @@ interface AloneInputProps {
 export const Container = styled.div`
   padding-top: 70px;
 
-
   [type=radio] { 
     position: absolute;
     opacity: 0;
@@ -75,7 +74,7 @@ export const Container = styled.div`
         padding-left: 10px;
         border-radius: 10px;
         border: none;
-        margin-top: 30px;
+        margin-top: 40px;
       `;
 
   export const ContainerCards = styled.div`
