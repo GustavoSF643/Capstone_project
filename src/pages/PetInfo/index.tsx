@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import api from "../../services/api";
 import { PetInfoDiv } from "./style";
+import PetInfoCard from "../../components/Molecules/PetInfoCard";
+import { PetProps } from "../../types/DecodedProps";
 
 interface ParamProps {
   petId: string;
@@ -10,7 +12,7 @@ interface ParamProps {
 
 const PetInfo = () => {
   const { petId }: ParamProps = useParams();
-  const [pet, setPet] = useState();
+  const [pet, setPet] = useState<PetProps>(Object);
 
   useEffect(() => {
     api
@@ -19,7 +21,11 @@ const PetInfo = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  return <PetInfoDiv></PetInfoDiv>;
+  return (
+    <PetInfoDiv>
+      <PetInfoCard pet={pet}></PetInfoCard>
+    </PetInfoDiv>
+  );
 };
 
 export default PetInfo;
