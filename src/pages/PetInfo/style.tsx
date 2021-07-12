@@ -7,19 +7,20 @@ export const Container = styled.div`
 
 export const PetInfoDiv = styled.div`
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: space-around;
+  margin-bottom: 20px;
 `;
 
 export const PetInfoCardDiv = styled.div`
   width: 70%;
-  height: 80vw;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 `;
 
 export const UserDiv = styled.div`
   width: 25%;
-  height: 35%;
+  height: 300px;
   background-color: white;
   position: relative;
   background: #ffffff;
@@ -30,6 +31,7 @@ export const UserDiv = styled.div`
   justify-content: flex-end;
   align-items: center;
   padding: 40px 0;
+  margin-top: 60px;
 
   & > img {
     width: 100px;
