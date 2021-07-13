@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface CardProps {
-  img: string
+  img: string;
 }
 
 export const Card = styled.div<CardProps>`
@@ -9,7 +9,7 @@ export const Card = styled.div<CardProps>`
   width: 290px;
   position: relative;
   cursor: pointer;
-  background-image: url(${props => props.img});
+  background-image: url(${(props) => props.img});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -20,6 +20,10 @@ export const Card = styled.div<CardProps>`
   &:hover {
     transform: scale(1.02);
     box-shadow: 8px 8px 6px rgb(128, 128, 128, 0.4);
+  }
+
+  &:hover :last-child {
+    top: 260px;
   }
 `;
 
@@ -34,11 +38,6 @@ export const CardInfo = styled.div`
   top: 411px;
   transition-duration: 350ms;
   transition-timing-function: ease-in-out;
-
-  &:hover {
-    position: relative;
-    top: 260px;
-  }
 `;
 
 export const CardDescription = styled.div`
