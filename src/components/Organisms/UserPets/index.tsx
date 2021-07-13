@@ -17,7 +17,8 @@ const UserPets = ({ userId }: UserPetsProps) => {
       .get(`pets?userId=${userId}`)
       .then((pets: any) => setUserPets(pets.data))
       .catch((error) => console.error(error));
-  }, []);
+  }, [userId]);
+
   return (
     <UserPetsDiv>
       {userPets &&

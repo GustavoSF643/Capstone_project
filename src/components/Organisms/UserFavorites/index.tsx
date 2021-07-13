@@ -22,7 +22,7 @@ const UserFavorites = ({ userId }: UserFavoritesProps) => {
   );
   const [userFavorites, setUserFavorites] = useState<Pet[]>([]);
   useEffect(() => {
-    if (token) {
+    if (token && userId) {
       api
         .get(`users/${userId}`, {
           headers: {
@@ -32,7 +32,8 @@ const UserFavorites = ({ userId }: UserFavoritesProps) => {
         .then((user: any) => setUserFavorites(user.data.favorites))
         .catch((err) => console.error(err));
     }
-  }, [token]);
+  }, [token, userId]);
+
   return (
     <UserFavoritesDiv>
       {userFavorites &&

@@ -10,9 +10,13 @@ export const UserInfoDiv = styled.div`
 `;
 
 export const InfoImageDiv = styled.div`
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 100%;
+
   & > img {
-    border-radius: 100%;
-    width: 250px;
+    width: 100%;
   }
 `;
 
