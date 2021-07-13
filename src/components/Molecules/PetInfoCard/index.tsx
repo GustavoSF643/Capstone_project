@@ -22,7 +22,16 @@ const PetInfoCard = ({ pet }: PetInfoCardProps) => {
         <ImageContainer>
           <img src={pet.img}></img>
           <ButtonContainer>
-            <ButtonFavorites />
+            <ButtonFavorites
+              pet={{
+                img: pet.img,
+                name: pet.name,
+                breed: pet.breed,
+                gender: pet.gender,
+                age: pet.age,
+                id: pet.id,
+              }}
+            />
           </ButtonContainer>
         </ImageContainer>
 
