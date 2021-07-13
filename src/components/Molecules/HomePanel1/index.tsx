@@ -3,6 +3,7 @@ import backgroundHomePanel1 from "../../../assets/backgroundHomePanel1.png";
 import heartButton from "../../../assets/heartButton.png"; 
 import ButtonHome from "../../Atomos/ButtonHome"; 
 
+
 const HomePanel1 = () => {
     return (
      <>    
