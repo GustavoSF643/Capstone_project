@@ -4,7 +4,7 @@ export const Panel1Div = styled.div`
     color: #694B3C;
     font-family: Roboto, 'Open Sans', sans-serif ; 
     width: 94%;
-    height: 700px;
+    height:100%;
     padding: 10px; 
     margin: 0 auto; 
 
@@ -13,7 +13,7 @@ export const Panel1Div = styled.div`
         width: 90%;
         height: 700px;
         position: absolute; 
-        margin: 0 auto; 
+        
     }
 
     div{
@@ -21,8 +21,8 @@ export const Panel1Div = styled.div`
         flex-direction: column; 
         align-items: center;
         justify-content: center;
-        width: 800px;
-        height: 750px;
+        width: 60%;
+        height: 800px;
     }   
 
     h2{
