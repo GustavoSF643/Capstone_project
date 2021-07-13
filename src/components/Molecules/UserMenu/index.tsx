@@ -5,30 +5,12 @@ import { UserMenuDiv } from "./style";
 import jwt_decode from "jwt-decode";
 import api from "../../../services/api";
 
-const UserMenu = () => {
+interface UserMenuProps {
+  userName: string;
+}
+
+const UserMenu = ({ userName }: UserMenuProps) => {
   const history = useHistory();
-  const [token] = useState<string | null>(
-    JSON.stringify(localStorage.getItem("@petMacher:token") || null)
-  );
-  const [userName, setUserName] = useState<string>("");
-  useEffect(() => {
-    if (token) {
-      const decode: DecodedProps = jwt_decode(token);
-      const newToken = JSON.parse(token);
-      api
-        .get(`users/${decode.sub}`, {
-          headers: {
-            Authorization: `Bearer ${newToken}`,
-          },
-        })
-        .then((user: any) => {
-          const nameArray = user.data.fullName.split(" ");
-          const firstName = nameArray[0];
-          setUserName(firstName);
-        })
-        .catch((err) => console.error(err));
-    }
-  }, [token]);
 
   return (
     <UserMenuDiv>

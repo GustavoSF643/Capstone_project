@@ -10,7 +10,7 @@ export const HeaderDiv = styled.div`
   background-color: white;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
   z-index: 1;
-  `;
+`;
 
 export const LogoDiv = styled.div`
   position: absolute;
@@ -20,9 +20,17 @@ export const LogoDiv = styled.div`
 
 export const UserImgDiv = styled.div`
   position: absolute;
-  top: 15px;
+  top: 10px;
   right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  overflow: hidden;
   cursor: pointer;
+
+  & > img {
+    width: 100%;
+  }
 `;
 
 export const UserMenuDiv = styled.div`
