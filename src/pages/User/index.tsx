@@ -5,6 +5,8 @@ import { UserDiv, UserMenuDiv } from "./style";
 import jwt_decode from "jwt-decode";
 import { DecodedProps } from "../../types/DecodedProps";
 import { useHistory } from "react-router-dom";
+import UserFavorites from "../../components/Organisms/UserFavorites";
+import UserPets from "../../components/Organisms/UserPets";
 
 interface StateProps {
   message: string;
@@ -82,8 +84,8 @@ const User = () => {
         <button onClick={() => changeMenu("pets")}>Seus Pets</button>
       </UserMenuDiv>
       {infoOpened && userId && <UserInfo userId={userId}></UserInfo>}
-      {favoritesOpened && <div>Favoritos</div>}
-      {petsOpened && <div>Seus Pets</div>}
+      {favoritesOpened && <UserFavorites userId={userId} />}
+      {petsOpened && <UserPets userId={userId} />}
     </UserDiv>
   );
 };
