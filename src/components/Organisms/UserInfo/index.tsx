@@ -31,7 +31,7 @@ const UserInfo = ({ userId }: userInfoProps) => {
   return (
     <UserInfoDiv>
       <InfoImageDiv>
-        <img src={Perfil} />
+        <img src={user.img} />
       </InfoImageDiv>
       <InfoDiv>
         <h3>{user.name}</h3>
