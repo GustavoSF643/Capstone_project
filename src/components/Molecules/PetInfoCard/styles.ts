@@ -4,9 +4,8 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   background-color: #ffffff;
+  font-family: Roboto, "Open Sans", sans-serif;
   color: #393939;
-  cursor: pointer;
-  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,18 +13,30 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 
+export const ImageContainer = styled.div`
+  position: relative;
+  width: 90%;
+  height: 40%;
+  margin-top: 40px;
+  border-radius: 50px;
+  overflow: hidden;
+
+  & > img {
+    display: block;
+    margin: 0 auto;
+    max-height: 300px;
+  }
+`;
+
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  color: #393939;
-  font-family: Roboto, "Open Sans", sans-serif;
-  cursor: pointer;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
-  width: 100%;
+  width: 80%;
   height: 100%;
   font-size: 18px;
 
@@ -67,21 +78,6 @@ export const History = styled.div`
   }
   p {
     margin-top: 30px;
-  }
-`;
-
-export const ImageContainer = styled.div`
-  position: relative;
-  width: 90%;
-  height: 40%;
-  margin-top: 40px;
-  border-radius: 50px;
-  overflow: hidden;
-
-  & > img {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
   }
 `;
 
