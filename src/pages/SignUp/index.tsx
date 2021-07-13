@@ -61,8 +61,8 @@ const SignUp = () => {
         <Form onSubmit={onSubmit} schema={schema}>
           <Input name="fullName" label="Nome Completo" placeholder="Preencher"/>
           <Input name="email" label="Email" placeholder="Preencher"/>
-          <Input name="password" label="Senha" placeholder="Preencher" type="password"/>
-          <Input name="passwordConfirmation" label="Confirmar Senha" placeholder="Preencher" type="password"/>
+          <Input name="password" autoComplete="true" label="Senha"  placeholder="Preencher" type="password"/>
+          <Input name="passwordConfirmation" autoComplete="true" label="Confirmar Senha" placeholder="Preencher" type="password"/>
           <Input name="age" label="Idade" type="number" placeholder="Preencher"/>
           <Input name="state" label="Estado" placeholder="Preencher"/>
           <Input name="city" label="Cidade" placeholder="Preencher"/>

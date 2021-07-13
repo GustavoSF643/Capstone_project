@@ -15,13 +15,6 @@ export const FakeBackground = styled.div`
   box-shadow: 2px 2px 10px black;
   margin-bottom: 100px;
 
-  h2 {
-    margin: 7px 0;
-    font-size: 24px;
-    font-family: var(--font-family-third);
-    color: var(--third);
-  }
-
   > p {
     margin-bottom: 45px;
     font-size: 48px;
@@ -31,9 +24,7 @@ export const FakeBackground = styled.div`
   }
 
   @media (min-width: 768px) {
-    h2 {
-      font-size: 33px;
-    }
+
 
     > p {
       font-size: 72px;
@@ -42,5 +33,13 @@ export const FakeBackground = styled.div`
 `
 
 export const H2 = styled.h2`
+    margin: 7px 0;
+    font-size: 24px;
+    font-family: var(--font-family-third);
+    color: var(--third);
+    align-self: end;
 
+    @media (min-width: 768px) {
+      font-size: 33px;
+    }
 `;

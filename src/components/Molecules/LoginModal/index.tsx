@@ -55,6 +55,7 @@ const LoginModal = ({ modalOpened, setModalOpened }: LoginModalProps) => {
               label="Senha"
               placeholder="Preencher"
               type="password"
+              autoComplete="true"
             />
             <LargeButton >LOGIN</LargeButton>
           </Form>

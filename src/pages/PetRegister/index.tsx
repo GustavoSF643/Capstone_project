@@ -5,6 +5,9 @@ import SelectForm from "./../../components/Atomos/SelectForm";
 import LargeButton from "./../../components/Atomos/LargeButton";
 import TextArea from "./../../components/Atomos/Textarea";
 import * as yup from "yup";
+import { DecodedProps } from "./../../types/DecodedProps";
+import jwt_decode from "jwt-decode";
+import { useState } from "react";
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -27,9 +30,39 @@ interface OnsubmitProps {
 }
 
 const PetRegister = () => {
+  const [token] = useState<string | null>(
+    JSON.stringify(localStorage.getItem("@petMacher:token") || null)
+  );
+
   const onSubmit = (data : any) => {
-    console.log(data)
-    // "currentState": 0,
+    if (token) {
+      const decode: DecodedProps = jwt_decode(token);
+      const newToken = JSON.parse(token);
+      
+      const newData = {
+        name: data.name,
+        type: data.type,
+        breed: data.breed,
+        gender: data.gender,
+        age: data.age,
+        size: data.size,
+        color: data.color,
+        coat: data.coat,
+        health: data.health,
+        currentState: 0,
+        img: data.img,
+        about: {
+          
+        },
+        userInfo: {
+          
+        },
+        userId: decode.sub
+      }
+      console.log(data)
+      // "currentState": 0,
+      
+    }
   }
 
   return (
@@ -48,7 +81,6 @@ const PetRegister = () => {
           <Input name="color" label="Cor" placeholder="Preencher"/>
           <Input name="coat" label="Pelagem" placeholder="Preencher"/>
           <H2>Sobre</H2>
-
           <TextArea name="description" label="Descrição" placeholder="Preencher"/>
           <Input name="health" label="Saúde" placeholder="Preencher"/>
           <TextArea name="history" label="História" placeholder="Preencher"/>
