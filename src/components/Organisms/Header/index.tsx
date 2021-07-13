@@ -10,16 +10,42 @@ import {
 } from "./style";
 import LogoHeader from "../../../assets/LogoHeader.png";
 import Vector from "../../../assets/Vector.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoginModal from "../../Molecules/LoginModal";
 import { useHistory } from "react-router-dom";
+import jwt_decode from "jwt-decode";
+import api from "../../../services/api";
+import { DecodedProps } from "../../../types/DecodedProps";
 
 const Header = () => {
   const [userMenuOpened, setUsermenuOpened] = useState(false);
   const [modalOpened, setModalOpened] = useState(false);
   const [token] = useState(localStorage.getItem("@petMacher:token") || null);
+  const [userName, setUserName] = useState<string>("");
+  const [userImg, setUserImg] = useState<string>("");
 
   const history = useHistory();
+
+  useEffect(() => {
+    if (token) {
+      const decode: DecodedProps = jwt_decode(token);
+
+      api
+        .get(`users/${decode.sub}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((user: any) => {
+          const nameArray = user.data.fullName.split(" ");
+
+          const firstName = nameArray[0];
+          setUserName(firstName);
+          setUserImg(user.data.img);
+        })
+        .catch((err) => console.error(err));
+    }
+  }, [token]);
 
   return (
     <HeaderDiv>
@@ -29,12 +55,12 @@ const Header = () => {
       <MenuHeader />
       {userMenuOpened && (
         <UserMenuDiv>
-          <UserMenu />
+          {userName && <UserMenu userName={userName} />}
         </UserMenuDiv>
       )}
       {token ? (
         <UserImgDiv onClick={() => setUsermenuOpened(!userMenuOpened)}>
-          <img src={Vector} />
+          {userImg && <img src={userImg} />}
         </UserImgDiv>
       ) : (
         <>
