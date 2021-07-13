@@ -42,7 +42,6 @@ const PetInfoCard = ({ pet }: PetInfoCardProps) => {
               {pet.userInfo && pet.userInfo.city},{" "}
               {pet.userInfo && pet.userInfo.state}
             </p>
-            <p>bairro</p>
           </div>
           <hr />
           <Attributes>
