@@ -10,7 +10,7 @@ export interface User {
   password: string;
   fullName: string;
   age: number;
-  phone: number;
+  contact: number;
   info: UserInfo;
   id: number;
   img: string;

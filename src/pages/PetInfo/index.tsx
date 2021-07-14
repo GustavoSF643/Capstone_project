@@ -11,11 +11,12 @@ import {
   ContainerPeoples,
 } from "./style";
 import PetInfoCard from "../../components/Molecules/PetInfoCard";
-import { DecodedProps, PetProps } from "../../types/DecodedProps";
+import { PetProps } from "../../types/DecodedProps";
 import { MdPlace, MdEmail } from "react-icons/md";
 import { GiSmartphone } from "react-icons/gi";
-import jwt_decode from "jwt-decode";
 import InterestedPeopleCard from "../../components/Molecules/InterestedPeopleCard";
+import { ProviderProps } from "../../types/ProviderProps";
+import { useUserInfo } from "../../Providers/UserInfo";
 
 interface ParamProps {
   petId: string;
@@ -24,33 +25,39 @@ interface ParamProps {
 const PetInfo = () => {
   const { petId }: ParamProps = useParams();
   const [pet, setPet] = useState<PetProps>(Object);
-  const [token] = useState<string | null>(
-    JSON.stringify(localStorage.getItem("@petMacher:token") || null)
-  );
   const [owner, setOwner] = useState<boolean>(false);
 
-  useEffect(() => {
+  const {
+    user: { id },
+  }: ProviderProps = useUserInfo();
+
+  const getPet = () => {
     api
       .get(`pets?id=${petId}`)
       .then((pet: any) => setPet(pet.data[0]))
       .catch((err) => console.error(err));
+  };
+
+  useEffect(() => {
+    getPet();
   }, [petId]);
 
   useEffect(() => {
-    if (token) {
-      const decode: DecodedProps = jwt_decode(token);
-      if (parseInt(decode.sub) === pet.userId) {
+    if (pet && id) {
+      if (id === pet.userId) {
         setOwner(true);
       }
     }
-  }, [pet, token]);
+  }, [pet, id]);
 
   return (
     <Container>
       <PetInfoDiv>
-        <PetInfoCardDiv>
-          <PetInfoCard pet={pet}></PetInfoCard>
-        </PetInfoCardDiv>
+        {pet && (
+          <PetInfoCardDiv>
+            <PetInfoCard pet={pet} getPet={getPet}></PetInfoCard>
+          </PetInfoCardDiv>
+        )}
         <ContainerPeoples>
           {pet.userInfo && (
             <UserDiv>
