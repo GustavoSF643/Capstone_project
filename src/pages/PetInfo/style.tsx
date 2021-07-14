@@ -9,7 +9,7 @@ export const Container = styled.div`
 export const ContainerPeoples = styled.div`
   display: flex;
   flex-direction: column;
-  width: 25%;
+  width: 28%;
 `;
 
 export const PetInfoDiv = styled.div`
@@ -20,7 +20,7 @@ export const PetInfoDiv = styled.div`
 `;
 
 export const PetInfoCardDiv = styled.div`
-  width: 70%;
+  width: 67%;
   min-width: 600px;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
@@ -79,4 +79,11 @@ export const InterestedPeopleDiv = styled.div`
   height: 500px;
   min-width: 250px;
   margin-top: 50px;
+  padding: 20px;
+
+  & > h3 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
 `;
