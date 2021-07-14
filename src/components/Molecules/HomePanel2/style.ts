@@ -4,7 +4,7 @@ export const Panel2Div = styled.div`
     color: #694B3C;
     font-family: Roboto, 'Open Sans', sans-serif ; 
     width: 90%;
-    height:100%;
+    height:100vh;
     padding: 10px; 
     display: flex; 
     flex-direction: row; 

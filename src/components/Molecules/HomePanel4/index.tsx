@@ -1,8 +1,8 @@
-import {Panel4Div, PanelDivInterna} from "./style"; 
+import {Panel4Div, PanelDivInterna,ImgLayout} from "./style"; 
 import imagePanelHome4 from "../../../assets/imagePanelHome4.png";
 import patinha_botao from "../../../assets/patinha_botao.png";
 
-import ButtonHome from "../../Atomos/ButtonHome";
+import ButtonHome2 from "../../Atomos/ButtonHome2";
 
 
 const HomePanel4 = () => {
@@ -10,14 +10,14 @@ const HomePanel4 = () => {
      <>    
        <Panel4Div>
                <PanelDivInterna> 
-                    <img src={imagePanelHome4}/>
+                    <ImgLayout src={imagePanelHome4}/>
                </PanelDivInterna> 
                <PanelDivInterna>
                     <h2>Precisa doar um animalzinho?</h2>
                     <h4>Caso não possa continuar com a posse de um cachorro ou 
                          gato, não seja o responsável por aumentar o número de 
                          animais de rua em sua cidade.</h4>
-                         <ButtonHome label="VEJA MAIS" image_source={patinha_botao}></ButtonHome>          
+                         <ButtonHome2 label="VEJA MAIS" image_source={patinha_botao}></ButtonHome2>          
                </PanelDivInterna>   
        </Panel4Div> 
      </> 

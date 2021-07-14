@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Panel5Div = styled.div`
     color: #694B3C;
     font-family: Roboto, 'Open Sans', sans-serif ; 
-    width: 100%;
-    height:300px;
+    width: 200vh;
+    height:70vh;
     padding: 10px; 
     margin: 30px auto; 
      
@@ -22,7 +22,7 @@ export const Panel5Div = styled.div`
 
 export const Panel5Img = styled.img`
     z-index: -1;
-    width: 100%;
+    width: 200vh;
     height:300px;
     position: absolute; 
 `;
@@ -31,6 +31,7 @@ export const ImgPlus = styled.img`
     width: 15px;
     height: 15px; 
     margin-bottom:10px; 
+    
 `; 
 
 export const ImgSimbol = styled.img`
