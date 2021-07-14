@@ -1,13 +1,17 @@
 import styled from "styled-components";
 
 export const StarContainer = styled.div`
-  padding: 40px 0;
   display: flex;
-  justify-content: space-between;
-  color: var(--third);
+  justify-content: flex-start;
+  margin: 35px 0 0 15px;
+  padding-bottom: 8px;
 
   input[type="radio"] {
     display: none;
+  }
+
+  svg {
+    margin-left: 5px;
   }
 
   span {

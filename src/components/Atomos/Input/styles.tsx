@@ -1,16 +1,17 @@
 import styled from "styled-components";
 
 interface ContainerProps {
-  isErr: boolean
+  isErr: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
   position: relative;
   width: 100%;
   border-radius: 10px;
-  border: 1px solid ${props => props.isErr ? "tomato" : `var(--third)`};
+  border: 1px solid ${(props) => (props.isErr ? "tomato" : `var(--third)`)};
   padding: 0 5px 5px 5px;
   height: 80px;
+  background-color: white;
 
   > p {
     margin: 7px 0;

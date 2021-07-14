@@ -4,27 +4,25 @@ import {
   CardInfo,
   RatingContainer,
 } from "../CardComment/style";
-import StarRating from "../../Atomos/StarRating";
-import { User } from "./../../../types/User";
+import StarRatingCard from "./../../Atomos/StarRatingCard";
+import { CommentProps } from "../../../types/Comment";
 
-interface CardCommentProps {
-  title: string;
-  comment: string;
-  perfil: User;
+export interface CardCommentProps {
+  user: CommentProps;
 }
 
-const CardComment = ({ title, comment, perfil }: CardCommentProps) => {
+const CardComment = ({ user }: CardCommentProps) => {
   return (
     <Card>
       <CardBody>
-        <h3>{title}</h3>
-        <p>{comment}</p>
+        <h3>{user.title}</h3>
+        <p>{user.comment}</p>
       </CardBody>
       <CardInfo>
-        <img src={perfil.img} />
+        <img src={user.img} />
         <RatingContainer>
-          <StarRating />
-          <h3>{perfil.fullname}</h3>
+          <StarRatingCard rating={user.rating} />
+          <h3>{user.name}</h3>
         </RatingContainer>
       </CardInfo>
     </Card>
