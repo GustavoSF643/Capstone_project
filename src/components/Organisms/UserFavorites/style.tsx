@@ -7,3 +7,12 @@ export const UserFavoritesDiv = styled.div`
   margin-top: 40px;
   gap: 50px;
 `;
+
+export const NotFavoritesDiv = styled.div`
+  & > h3 {
+    margin: 70px;
+    font-size: 24px;
+    color: var(--third);
+    font-family: var(--font-family-third);
+  }
+`;

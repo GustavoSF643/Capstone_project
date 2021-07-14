@@ -5,7 +5,7 @@ export interface UserInfo {
 }
 
 export interface User {
-  name: string;
+  fullname: string;
   email: string;
   password: string;
   fullName: string;
@@ -14,4 +14,13 @@ export interface User {
   info: UserInfo;
   id: number;
   img: string;
+  favorites: {
+    name: string;
+    img: string;
+    breed: string;
+    gender: string;
+    age: number;
+    color: string;
+    id: number;
+  }[];
 }

@@ -1,11 +1,8 @@
-import { useEffect, useState } from "react";
 import api from "../../../services/api";
 import CardPet from "../../Molecules/CardPet";
-import { UserFavoritesDiv } from "./style";
-
-interface UserFavoritesProps {
-  userId: string;
-}
+import { UserFavoritesDiv, NotFavoritesDiv } from "./style";
+import { useUserInfo } from "../../../Providers/UserInfo";
+import { User } from "../../../types/User";
 
 interface Pet {
   img: string;
@@ -16,28 +13,19 @@ interface Pet {
   id: number;
 }
 
-const UserFavorites = ({ userId }: UserFavoritesProps) => {
-  const [token] = useState<string | null>(
-    localStorage.getItem("@petMacher:token")
-  );
-  const [userFavorites, setUserFavorites] = useState<Pet[]>([]);
-  useEffect(() => {
-    if (token && userId) {
-      api
-        .get(`users/${userId}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((user: any) => setUserFavorites(user.data.favorites))
-        .catch((err) => console.error(err));
-    }
-  }, [token, userId]);
+interface ProviderProps {
+  user: User;
+}
+
+const UserFavorites = () => {
+  const {
+    user: { favorites },
+  }: ProviderProps = useUserInfo();
 
   return (
     <UserFavoritesDiv>
-      {userFavorites &&
-        userFavorites.map((pet) => (
+      {favorites &&
+        favorites.map((pet) => (
           <CardPet
             key={pet.id}
             img={pet.img}
@@ -48,6 +36,11 @@ const UserFavorites = ({ userId }: UserFavoritesProps) => {
             id={pet.id}
           />
         ))}
+      {favorites && favorites.length === 0 && (
+        <NotFavoritesDiv>
+          <h3>Você não possui pets favoritos.</h3>
+        </NotFavoritesDiv>
+      )}
     </UserFavoritesDiv>
   );
 };

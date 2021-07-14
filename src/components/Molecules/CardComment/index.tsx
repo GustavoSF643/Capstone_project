@@ -24,7 +24,7 @@ const CardComment = ({ title, comment, perfil }: CardCommentProps) => {
         <img src={perfil.img} />
         <RatingContainer>
           <StarRating />
-          <h3>{perfil.name}</h3>
+          <h3>{perfil.fullname}</h3>
         </RatingContainer>
       </CardInfo>
     </Card>
