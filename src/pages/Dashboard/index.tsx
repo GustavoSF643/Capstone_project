@@ -64,7 +64,6 @@ const Dashboard = () => {
       if (value !== "Selecionar" && value !== "") {
         count ? (str += `?`) : (str += `&`);
         count = false;
-
         if (key === "state") {
           str += `userInfo.${key}=${value}`;
         } else {
