@@ -7,6 +7,7 @@ import TextArea from "./../../components/Atomos/Textarea";
 import { useUserInfo } from "./../../Providers/UserInfo";
 import * as yup from "yup";
 import api from "./../../services/api";
+import { toast } from "react-toastify";
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -28,11 +29,26 @@ interface OnsubmitProps {
   
 }
 
+interface DataProps {
+  name: string,
+  type: string,
+  breed: string,
+  gender: string,
+  age: number,
+  size: string,
+  color: string,
+  coat: string,
+  health: string,
+  img: string,
+  description: string,
+  behavior: string,
+  history: string
+}
+
 const PetRegister = () => {
   const { tokenParse, user, decode } = useUserInfo();
 
-
-  const onSubmit = (data : any) => {
+  const onSubmit = (data: DataProps, reset: any) => {
     const newData = {
       name: data.name,
       type: data.type,
@@ -54,10 +70,13 @@ const PetRegister = () => {
         fullName: user.fullName,
         state: user.info.state,
         city: user.info.city,
-        imgUser: user.img,
+        img: user.img,
         contact: user.contact,
         email: user.email
       },
+      interestedPeople: [
+        
+      ],
       userId: Number(decode)
     }
       api.post("pets", newData, {
@@ -65,7 +84,10 @@ const PetRegister = () => {
           Authorization: `Bearer ${tokenParse}`,
         },
       })
-        .then(response => console.log(response))
+        .then(response => {
+          toast.success("Sucess");
+          reset();
+        })
         .catch(err => console.log(err, err.response))
   }
 
