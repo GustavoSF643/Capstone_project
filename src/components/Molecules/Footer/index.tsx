@@ -12,12 +12,6 @@ const Footer = () => {
          <a href="">sobre nós</a>    
       </Div>
       <Div>  
-         <h3>Assine a nossa newsletter</h3>
-         <input type="text" placeholder="Nome"/>
-         <input type="text" placeholder="email"/> 
-         <button> Cadastrar </button>
-      </Div> 
-      <Div>  
          <h3>Siga nossa página nas redes sociais</h3>
          <Icons>
             <div>  
