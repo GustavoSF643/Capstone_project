@@ -1,16 +1,10 @@
-import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { DecodedProps } from "../../../types/DecodedProps";
+import { useUserInfo } from "../../../Providers/UserInfo";
 import { UserMenuDiv } from "./style";
-import jwt_decode from "jwt-decode";
-import api from "../../../services/api";
 
-interface UserMenuProps {
-  userName: string;
-}
-
-const UserMenu = ({ userName }: UserMenuProps) => {
+const UserMenu = () => {
   const history = useHistory();
+  const { userName } = useUserInfo();
 
   return (
     <UserMenuDiv>

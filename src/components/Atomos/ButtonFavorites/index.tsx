@@ -2,9 +2,10 @@ import { Button } from "./style";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import jwt_decode from "jwt-decode";
-import { DecodedProps } from "../../../types/DecodedProps";
 import api from "../../../services/api";
+import { useUserInfo } from "../../../Providers/UserInfo";
+import { User } from "../../../types/User";
+import { AxiosResponse } from "axios";
 
 interface Pet {
   img: string;
@@ -19,100 +20,97 @@ interface ButtonFavoritesProps {
   pet: Pet;
 }
 
+interface ProviderProps {
+  user: User;
+  tokenParse: string;
+}
+
 const ButtonFavorites = ({ pet }: ButtonFavoritesProps) => {
   const [like, setLike] = useState(false);
-  const [token] = useState<string | null>(
-    JSON.stringify(localStorage.getItem("@petMacher:token") || null)
-  );
+
+  const {
+    user: { favorites, id },
+    tokenParse,
+  }: ProviderProps = useUserInfo();
 
   const checkFavorites = () => {
-    if (token) {
-      const decode: DecodedProps = jwt_decode(token);
-      const newToken = JSON.parse(token);
-      api
-        .get(`users/${decode.sub}`, {
-          headers: {
-            Authorization: `Bearer ${newToken}`,
-          },
-        })
-        .then((user: any) => {
-          setLike(
-            user.data.favorites.some(
-              (petFavorite: any) => petFavorite.id === pet.id
-            )
-          );
-        })
-        .catch((err) => console.error(err));
-    }
+    api
+      .get(`users/${id}`, {
+        headers: {
+          Authorization: `Bearer ${tokenParse}`,
+        },
+      })
+      .then((user: AxiosResponse) =>
+        setLike(
+          user.data.favorites.some(
+            (petFavorite: Pet) => petFavorite.id === pet.id
+          )
+        )
+      )
+      .catch((error) => console.error(error));
   };
 
   useEffect(() => {
-    checkFavorites();
-  }, [token]);
+    if (favorites) {
+      checkFavorites();
+    }
+  }, [favorites]);
 
   const addLike = () => {
-    if (token) {
-      const decode: DecodedProps = jwt_decode(token);
-      const newToken = JSON.parse(token);
-      api
-        .get(`users/${decode.sub}`, {
-          headers: {
-            Authorization: `Bearer ${newToken}`,
-          },
-        })
-        .then((user: any) => {
-          return user.data.favorites;
-        })
-        .then((response) =>
-          api
-            .patch(
-              `users/${decode.sub}`,
-              { favorites: [...response, pet] },
-              {
-                headers: {
-                  Authorization: `Bearer ${newToken}`,
-                },
-              }
-            )
-            .then((response: any) => checkFavorites())
-            .catch((err) => console.error(err))
-        )
-        .catch((err) => console.error(err));
-    }
+    api
+      .get(`users/${id}`, {
+        headers: {
+          Authorization: `Bearer ${tokenParse}`,
+        },
+      })
+      .then((user: AxiosResponse) => {
+        return user.data.favorites;
+      })
+      .then((response) =>
+        api
+          .patch(
+            `users/${id}`,
+            { favorites: [...response, pet] },
+            {
+              headers: {
+                Authorization: `Bearer ${tokenParse}`,
+              },
+            }
+          )
+          .then((response) => checkFavorites())
+          .catch((err) => console.error(err))
+      )
+      .catch((err) => console.error(err));
   };
 
   const removeLike = () => {
-    if (token) {
-      const decode: DecodedProps = jwt_decode(token);
-      const newToken = JSON.parse(token);
-      api
-        .get(`users/${decode.sub}`, {
-          headers: {
-            Authorization: `Bearer ${newToken}`,
-          },
-        })
-        .then((user: any) => {
-          const filtered = user.data.favorites.filter(
-            (petFavorite: any) => petFavorite.id !== pet.id
-          );
-          return filtered;
-        })
-        .then((response) =>
-          api
-            .patch(
-              `users/${decode.sub}`,
-              { favorites: [...response] },
-              {
-                headers: {
-                  Authorization: `Bearer ${newToken}`,
-                },
-              }
-            )
-            .then((response: any) => checkFavorites())
-            .catch((err) => console.error(err))
-        )
-        .catch((err) => console.error(err));
-    }
+    api
+      .get(`users/${id}`, {
+        headers: {
+          Authorization: `Bearer ${tokenParse}`,
+        },
+      })
+      .then((user: AxiosResponse) => {
+        const filtered = user.data.favorites.filter(
+          (petFavorite: Pet) => petFavorite.id !== pet.id
+        );
+        return filtered;
+      })
+      .then((response) =>
+        api
+          .patch(
+            `users/${id}`,
+            { favorites: [...response] },
+            {
+              headers: {
+                Authorization: `Bearer ${tokenParse}`,
+              },
+            }
+          )
+          .then((response) => checkFavorites())
+          .catch((err) => console.error(err))
+      )
+      .catch((err) => console.error(err));
   };
 
   return (

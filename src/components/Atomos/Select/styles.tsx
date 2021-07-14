@@ -5,7 +5,6 @@ export const Container = styled.div`
     font-size: 24px;
     margin-bottom: 10px;
   }
-
 `;
 
 export const SelectStyles = styled.select`
@@ -21,6 +20,5 @@ export const SelectStyles = styled.select`
   font-size: 17px;
 
   > option {
-
   }
 `;

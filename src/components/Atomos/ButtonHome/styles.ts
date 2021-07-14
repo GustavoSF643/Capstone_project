@@ -16,7 +16,13 @@ export const Container = styled.button`
     width: 28px;
     height: 21px;
     margin-top: 4px;
+<<<<<<< HEAD
     margin-left: 8px; 
     z-index:2 ;
   }
+=======
+    margin-left: 8px;   
+  }
+
+>>>>>>> 7ce83ea18cfb3e96c1028d9eea99b679fc22e046
 `;
