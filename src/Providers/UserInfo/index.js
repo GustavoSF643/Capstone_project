@@ -12,7 +12,8 @@ export const UserInfoProvider = ({children}) => {
   const [tokenParse, setTokenParse] = useState("");
   const [userName, setUserName] = useState("");
   const [user, setUser] = useState("");
-  const [decode, setDecode] = useState(jwt_decode(token).sub);
+  const [decode, setDecode] = useState();
+  
   const isLogin = token !== 'null';
 
   useEffect(() => {
