@@ -16,7 +16,8 @@ interface SingUpProps {
   district: string,
   city: string,
   state: string,
-  img: string
+  img: string,
+  contact: string
 }
 
 const schema = yup.object().shape({
@@ -29,7 +30,8 @@ const schema = yup.object().shape({
   district: yup.string().required().min(2).max(50),
   city: yup.string().required().min(2).max(50),
   state: yup.string().required().min(2).max(50),
-  img: yup.string().required()
+  img: yup.string(),
+  contact: yup.string().required()
 });
 
 const SignUp = () => {
@@ -39,9 +41,11 @@ const SignUp = () => {
       email: data.email,
       password: data.password,
       age: data.age,
+      contact: data.contact,
       info: {
         district: data.district,
-        state: data.state
+        state: data.state,
+        city: data.city
       }
     }
     api.post("register", newData)
@@ -67,6 +71,7 @@ const SignUp = () => {
           <Input name="state" label="Estado" placeholder="Preencher"/>
           <Input name="city" label="Cidade" placeholder="Preencher"/>
           <Input name="district" label="Bairro" placeholder="Preencher"/>
+          <Input name="contact" label="Contato" placeholder="Number"/>
           <Input name="img" label="Imagem de Perfil" placeholder="Url Imagem" />
           <LargeButton type="submit">Enviar</LargeButton>
         </Form>

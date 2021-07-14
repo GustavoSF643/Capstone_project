@@ -55,7 +55,7 @@ const Header = () => {
       <MenuHeader />
       {userMenuOpened && (
         <UserMenuDiv>
-          {userName && <UserMenu userName={userName} />}
+          {userName && <UserMenu />}
         </UserMenuDiv>
       )}
       {token ? (
