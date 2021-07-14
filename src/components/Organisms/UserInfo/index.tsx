@@ -34,7 +34,7 @@ const UserInfo = ({ userId }: userInfoProps) => {
         <img src={user.img} />
       </InfoImageDiv>
       <InfoDiv>
-        <h3>{user.name}</h3>
+        <h3>{user.fullname}</h3>
         <p>Email:{user.email}</p>
         <p>Telefone:{user.phone}</p>
         <p>Idade:{user.age}</p>

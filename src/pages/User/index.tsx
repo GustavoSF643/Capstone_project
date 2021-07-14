@@ -84,7 +84,7 @@ const User = () => {
         <button onClick={() => changeMenu("pets")}>Seus Pets</button>
       </UserMenuDiv>
       {infoOpened && userId && <UserInfo userId={userId}></UserInfo>}
-      {favoritesOpened && <UserFavorites userId={userId} />}
+      {favoritesOpened && <UserFavorites />}
       {petsOpened && <UserPets userId={userId} />}
     </UserDiv>
   );
