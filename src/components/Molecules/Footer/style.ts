@@ -4,7 +4,7 @@ export const FooterDiv = styled.div`
     background-color: #694B3C; 
     color: white; 
     width: 100%;
-    height: 250px;
+    height: 180px;
     padding:10px; 
     display: flex;
     flex-direction: row;  
@@ -28,6 +28,7 @@ export const FooterDiv = styled.div`
         flex-direction: column; 
         align-items: center;
         justify-content: space-evenly;  
+        margin-top: 10px; 
     }
 `;
 
@@ -58,6 +59,18 @@ export const Icons = styled.div`
         justify-content: space-between; 
         align-items: center;
     }       
+`;
+
+export const CopyrigthDiv = styled.div`
+    background-color: #694B3C; 
+    color: white; 
+    width: 100%;
+    height: 50px;
+    padding:10px; 
+    display: flex;
+    flex-direction: row;  
+    align-items: center;
+    justify-content: space-evenly;
 `;
 
 
