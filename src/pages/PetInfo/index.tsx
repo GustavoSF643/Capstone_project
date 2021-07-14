@@ -15,6 +15,7 @@ import { DecodedProps, PetProps } from "../../types/DecodedProps";
 import { MdPlace, MdEmail } from "react-icons/md";
 import { GiSmartphone } from "react-icons/gi";
 import jwt_decode from "jwt-decode";
+import InterestedPeopleCard from "../../components/Molecules/InterestedPeopleCard";
 
 interface ParamProps {
   petId: string;
@@ -74,8 +75,11 @@ const PetInfo = () => {
 
           {owner && (
             <InterestedPeopleDiv>
+              <h3>Pessoas Interessadas</h3>
               {pet.interestedPeople &&
-                pet.interestedPeople.map((people) => console.log(people))}
+                pet.interestedPeople.map((people) => (
+                  <InterestedPeopleCard people={people} key={people.id} />
+                ))}
             </InterestedPeopleDiv>
           )}
         </ContainerPeoples>
