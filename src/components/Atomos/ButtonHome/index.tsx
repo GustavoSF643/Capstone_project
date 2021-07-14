@@ -10,7 +10,9 @@ const ButtonHome = ({ label, image_source }: ButtonHomeProps) => {
   return (
     <>
       <Container>
-        {label} <img src={image_source} />
+        <div>
+          <p>{label}</p> <img src={image_source} />
+        </div>  
       </Container>
     </>
   );

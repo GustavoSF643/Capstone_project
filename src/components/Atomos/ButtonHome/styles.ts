@@ -6,13 +6,24 @@ export const Container = styled.button`
   background-color: #e8667d;
   color: #ffffff;
   border-radius: 100px;
-  font-size: 36px;
+  font-size: 25px;
   font-family: Roboto, "Open Sans", sans-serif;
-  cursor: pointer;
-  margin: auto;
+  cursor: pointer; 
+  z-index: -1; 
+
 
   img {
-    width: 46px;
-    height: 40px;
+    width: 28px;
+    height: 21px;
+  
+  }
+
+  div {
+    width: 300px;
+    height: 80px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
   }
 `;
