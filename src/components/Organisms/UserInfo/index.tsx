@@ -36,7 +36,7 @@ const UserInfo = ({ userId }: userInfoProps) => {
       <InfoDiv>
         <h3>{user.fullname}</h3>
         <p>Email:{user.email}</p>
-        <p>Telefone:{user.phone}</p>
+        <p>Telefone:{user.contact}</p>
         <p>Idade:{user.age}</p>
         <p>Estado:{user.info && user.info.state}</p>
         <p>Cidade:{user.info && user.info.city}</p>

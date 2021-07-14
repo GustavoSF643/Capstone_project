@@ -29,30 +29,36 @@ const ButtonFavorites = ({ pet }: ButtonFavoritesProps) => {
   const [like, setLike] = useState(false);
 
   const {
-    user: { favorites, id },
+    user: { id, favorites },
     tokenParse,
   }: ProviderProps = useUserInfo();
 
   const checkFavorites = () => {
-    api
-      .get(`users/${id}`, {
-        headers: {
-          Authorization: `Bearer ${tokenParse}`,
-        },
-      })
-      .then((user: AxiosResponse) =>
-        setLike(
-          user.data.favorites.some(
-            (petFavorite: Pet) => petFavorite.id === pet.id
-          )
-        )
-      )
-      .catch((error) => console.error(error));
+    // api
+    //   .get(`users/${id}`, {
+    //     headers: {
+    //       Authorization: `Bearer ${tokenParse}`,
+    //     },
+    //   })
+    //   .then((user: AxiosResponse) =>
+    //     setLike(
+    //       user.data.favorites.some(
+    //         (petFavorite: Pet) => petFavorite.id === pet.id
+    //       )
+    //     )
+    //   )
+    //   .catch((error) => console.error(error));
   };
+
+  // useEffect(() => {
+  //   if (tokenParse && id) {
+  //     checkFavorites();
+  //   }
+  // }, [tokenParse, id]);
 
   useEffect(() => {
     if (favorites) {
-      checkFavorites();
+      setLike(favorites.some((petFavorite: Pet) => petFavorite.id === pet.id));
     }
   }, [favorites]);
 
@@ -116,11 +122,11 @@ const ButtonFavorites = ({ pet }: ButtonFavoritesProps) => {
   return (
     <>
       {like ? (
-        <Button onClick={removeLike}>
+        <Button onClick={() => removeLike()}>
           <FaHeart />
         </Button>
       ) : (
-        <Button onClick={addLike}>
+        <Button onClick={() => addLike()}>
           <FaRegHeart />
         </Button>
       )}

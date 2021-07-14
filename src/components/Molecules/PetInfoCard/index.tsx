@@ -10,36 +10,109 @@ import {
 import LargeButton from "../../Atomos/LargeButton";
 import ButtonFavorites from "../../Atomos/ButtonFavorites";
 import { PetProps } from "../../../types/DecodedProps";
+import { useState } from "react";
+import { ProviderProps } from "../../../types/ProviderProps";
+import { useUserInfo } from "../../../Providers/UserInfo";
+import { useEffect } from "react";
+import api from "../../../services/api";
+import userEvent from "@testing-library/user-event";
 
 interface PetInfoCardProps {
   pet: PetProps;
+  getPet: () => void;
 }
 
-const PetInfoCard = ({ pet }: PetInfoCardProps) => {
+const PetInfoCard = ({ pet, getPet }: PetInfoCardProps) => {
+  const {
+    user: { id, info, img, contact, email },
+    isLogin,
+    tokenParse,
+  }: ProviderProps = useUserInfo();
+
+  const [isInterested, setIsInterested] = useState(false);
+
+  const { interestedPeople } = pet;
+
+  useEffect(() => {
+    if (interestedPeople) {
+      setIsInterested(pet.interestedPeople.some((people) => id === people.id));
+    }
+  }, [interestedPeople]);
+
+  const handleInterested = () => {
+    const newData = {
+      state: info.state,
+      city: info.city,
+      district: info.district,
+      img: img,
+      contact: contact,
+      email: email,
+      id: id,
+    };
+
+    const interestedPeopleArray = interestedPeople ? interestedPeople : [];
+    const newInterestedPeople = [...interestedPeopleArray, newData];
+
+    api
+      .patch(
+        `pets/${pet.id}`,
+        { interestedPeople: newInterestedPeople },
+        {
+          headers: {
+            Authorization: `Bearer ${tokenParse}`,
+          },
+        }
+      )
+      .then((response) => getPet())
+      .catch((error) => console.error(error));
+  };
+
+  const handleNotInterested = () => {
+    const interestedPeopleArray = interestedPeople ? interestedPeople : [];
+    const filtredPeople = interestedPeopleArray.filter(
+      (people) => people.id !== id
+    );
+
+    api
+      .patch(
+        `pets/${pet.id}`,
+        { interestedPeople: filtredPeople },
+        {
+          headers: {
+            Authorization: `Bearer ${tokenParse}`,
+          },
+        }
+      )
+      .then((response) => getPet())
+      .catch((error) => console.error(error));
+  };
+
   return (
     <>
       <Container>
         <ImageContainer>
           <img src={pet.img}></img>
-          <ButtonContainer>
-            <ButtonFavorites
-              pet={{
-                img: pet.img,
-                name: pet.name,
-                breed: pet.breed,
-                gender: pet.gender,
-                age: pet.age,
-                id: pet.id,
-              }}
-            />
-          </ButtonContainer>
+          {isLogin && pet && (
+            <ButtonContainer>
+              <ButtonFavorites
+                pet={{
+                  img: pet.img,
+                  name: pet.name,
+                  breed: pet.breed,
+                  gender: pet.gender,
+                  age: pet.age,
+                  id: pet.id,
+                }}
+              />
+            </ButtonContainer>
+          )}
         </ImageContainer>
 
         <TextContainer>
           <div>
             <h1>{pet.name}</h1>
             <p>
-              {pet.userInfo && pet.userInfo.city},{" "}
+              {pet.userInfo && pet.userInfo.city},
               {pet.userInfo && pet.userInfo.state}
             </p>
           </div>
@@ -69,7 +142,15 @@ const PetInfoCard = ({ pet }: PetInfoCardProps) => {
           </History>
           <hr />
         </TextContainer>
-        <LargeButton>Estou interessado</LargeButton>
+        {isInterested ? (
+          <LargeButton onClick={() => handleNotInterested()}>
+            Não estou interessado
+          </LargeButton>
+        ) : (
+          <LargeButton onClick={() => handleInterested()}>
+            Estou interessado
+          </LargeButton>
+        )}
       </Container>
     </>
   );
