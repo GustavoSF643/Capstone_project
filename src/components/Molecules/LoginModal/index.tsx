@@ -28,11 +28,9 @@ const LoginModal = ({ modalOpened, setModalOpened }: LoginModalProps) => {
     api
       .post("login", data)
       .then((response) => {
-        localStorage.setItem(
-          "@petMacher:token",
-          JSON.stringify(response.data.token)
-        );
+        localStorage.setItem("@petMacher:token", response.data.accessToken);
         reset();
+        location.reload();
       })
       .catch((err) => {
         toast.info(err.response.data);
@@ -57,8 +55,9 @@ const LoginModal = ({ modalOpened, setModalOpened }: LoginModalProps) => {
               label="Senha"
               placeholder="Preencher"
               type="password"
+              autoComplete="true"
             />
-            <LargeButton label="LOGIN" />
+            <LargeButton >LOGIN</LargeButton>
           </Form>
         </LoginFormDiv>
       </LoginDiv>

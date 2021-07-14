@@ -5,7 +5,6 @@ export const UserMenuDiv = styled.div`
   flex-direction: column;
   background-color: var(--third);
   width: 233px;
-  height: 223px;
   align-items: center;
 
   h3 {
@@ -16,6 +15,7 @@ export const UserMenuDiv = styled.div`
     width: 170px;
     text-align: center;
     padding: 5px;
+    min-height: 52.5px;
   }
 
   a {
@@ -28,6 +28,7 @@ export const UserMenuDiv = styled.div`
     padding: 10px;
     width: 100%;
     border-bottom: 1px solid white;
+    cursor: pointer;
   }
 
   & :last-child {

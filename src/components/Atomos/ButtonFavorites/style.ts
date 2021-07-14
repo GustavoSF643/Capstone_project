@@ -8,4 +8,5 @@ export const Button = styled.button`
   border-radius: 50%;
   box-sizing: border-box;
   font-size: 2rem;
+  color: var(--fifth);
 `;

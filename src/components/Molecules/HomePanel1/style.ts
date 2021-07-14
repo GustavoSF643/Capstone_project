@@ -13,8 +13,7 @@ export const Panel1Div = styled.div`
         width: 200vh;
         height: 700px;
         position: absolute; 
-        margin: 0 auto; 
-        
+        margin: 0 auto;        
     }
 
     div{
@@ -35,3 +34,4 @@ export const Panel1Div = styled.div`
         margin: 20px;     
     }
 `;
+

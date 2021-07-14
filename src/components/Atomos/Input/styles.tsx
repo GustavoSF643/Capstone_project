@@ -42,7 +42,6 @@ export const Container = styled.div<ContainerProps>`
     > input {
       font-size: 18px;
       margin-top: 0px;
-
     }
 
     > span {
