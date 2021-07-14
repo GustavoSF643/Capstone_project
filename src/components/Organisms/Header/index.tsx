@@ -13,39 +13,38 @@ import Vector from "../../../assets/Vector.png";
 import { useEffect, useState } from "react";
 import LoginModal from "../../Molecules/LoginModal";
 import { useHistory } from "react-router-dom";
-import jwt_decode from "jwt-decode";
 import api from "../../../services/api";
-import { DecodedProps } from "../../../types/DecodedProps";
+import { AxiosResponse } from "axios";
+import { useUserInfo } from "../../../Providers/UserInfo";
+import { ProviderProps } from "../../../types/ProviderProps";
 
 const Header = () => {
   const [userMenuOpened, setUsermenuOpened] = useState(false);
   const [modalOpened, setModalOpened] = useState(false);
-  const [token] = useState(localStorage.getItem("@petMacher:token") || null);
-  const [userName, setUserName] = useState<string>("");
   const [userImg, setUserImg] = useState<string>("");
 
   const history = useHistory();
 
-  useEffect(() => {
-    if (token) {
-      const decode: DecodedProps = jwt_decode(token);
+  const {
+    user: { id },
+    tokenParse,
+    isLogin,
+  }: ProviderProps = useUserInfo();
 
+  useEffect(() => {
+    if (tokenParse && id) {
       api
-        .get(`users/${decode.sub}`, {
+        .get(`users/${id}`, {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${tokenParse}`,
           },
         })
-        .then((user: any) => {
-          const nameArray = user.data.fullName.split(" ");
-
-          const firstName = nameArray[0];
-          setUserName(firstName);
+        .then((user: AxiosResponse) => {
           setUserImg(user.data.img);
         })
         .catch((err) => console.error(err));
     }
-  }, [token]);
+  }, [tokenParse, id]);
 
   return (
     <HeaderDiv>
@@ -54,7 +53,7 @@ const Header = () => {
       </LogoDiv>
       <MenuHeader />
       {userMenuOpened && <UserMenuDiv>{<UserMenu />}</UserMenuDiv>}
-      {token ? (
+      {isLogin ? (
         <UserImgDiv onClick={() => setUsermenuOpened(!userMenuOpened)}>
           {userImg ? <img src={userImg} /> : <img src={Vector} />}
         </UserImgDiv>
