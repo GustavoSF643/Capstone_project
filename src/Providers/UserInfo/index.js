@@ -12,7 +12,7 @@ export const UserInfoProvider = ({children}) => {
   const [tokenParse, setTokenParse] = useState("");
   const [userName, setUserName] = useState("");
   const [user, setUser] = useState("");
-  const [decode, setDecode] = useState(-1);
+  const [decode, setDecode] = useState(jwt_decode(token).sub);
   const isLogin = token !== 'null';
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export const UserInfoProvider = ({children}) => {
 
   return (
     <UserInfoContext.Provider 
-      value={{ userName, user, tokenParse, decode, isLogin }}
+      value={{ userName, user, tokenParse, decode, isLogin, token }}
     >
       {children}
     </UserInfoContext.Provider>

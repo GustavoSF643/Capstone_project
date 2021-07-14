@@ -7,6 +7,7 @@ import { DecodedProps } from "../../types/DecodedProps";
 import { useHistory } from "react-router-dom";
 import UserFavorites from "../../components/Organisms/UserFavorites";
 import UserPets from "../../components/Organisms/UserPets";
+import { useUserInfo } from "./../../Providers/UserInfo";
 
 interface StateProps {
   message: string;
@@ -21,6 +22,7 @@ interface HistoryProps {
 }
 
 const User = () => {
+  const { isLogin, decode } = useUserInfo();
   const history: HistoryProps = useHistory();
   const {
     location: {
@@ -28,10 +30,6 @@ const User = () => {
     },
   } = history;
 
-  const [userId, setUserId] = useState<string>("");
-  const [token] = useState<string | null>(
-    JSON.stringify(localStorage.getItem("@petMacher:token") || null)
-  );
   const [infoOpened, setInfoOpened] = useState<boolean>(() => {
     return message === "info" ? true : false;
   });
@@ -41,13 +39,6 @@ const User = () => {
   const [petsOpened, setPetsOpened] = useState<boolean>(() => {
     return message === "pets" ? true : false;
   });
-
-  useEffect(() => {
-    if (token) {
-      const decode: DecodedProps = jwt_decode(token);
-      setUserId(decode.sub);
-    }
-  }, [token]);
 
   const changeMenu = (name: string) => {
     if (name === "info") {
@@ -67,7 +58,7 @@ const User = () => {
     }
   };
 
-  if (!token) {
+  if (!isLogin) {
     return <Redirect to="/register" />;
   }
 
@@ -83,9 +74,9 @@ const User = () => {
         <button onClick={() => changeMenu("favorites")}>Favoritos</button>
         <button onClick={() => changeMenu("pets")}>Seus Pets</button>
       </UserMenuDiv>
-      {infoOpened && userId && <UserInfo userId={userId}></UserInfo>}
+      {infoOpened && decode && <UserInfo userId={decode}></UserInfo>}
       {favoritesOpened && <UserFavorites />}
-      {petsOpened && <UserPets userId={userId} />}
+      {petsOpened && <UserPets userId={decode} />}
     </UserDiv>
   );
 };
