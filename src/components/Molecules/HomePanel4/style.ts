@@ -1,29 +1,19 @@
 import styled from "styled-components";
 
-export const Panel2Div = styled.div`
+export const Panel4Div = styled.div`
     color: #694B3C;
     font-family: Roboto, 'Open Sans', sans-serif ; 
     width: 90%;
-    height:100vh;
+    height:80vh;
     padding: 10px; 
     display: flex; 
     flex-direction: row; 
     align-items: center;
     justify-content: space-around;
-    margin:0 auto; 
-
-    img{
-        width: 450px;
-        height: 400px; 
-    }
-
-    div{
-        text-align: center;
-        padding: 10px; 
-    }
+    margin:20px auto; 
 
     h2{
-        font-size: 45px ;
+        font-size: 40px ;
         color: #7A3B6C; 
         font-family: Taviraj;  
     }
@@ -34,5 +24,16 @@ export const Panel2Div = styled.div`
         font-family: Taviraj;
         margin: 15px;     
     }
+`;
 
+export const PanelDivInterna = styled.div`
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+`;
+
+export const ImgLayout = styled.img`
+    width: 600px;
+    height: 600x;
+    margin: 10px 20px;
 `;

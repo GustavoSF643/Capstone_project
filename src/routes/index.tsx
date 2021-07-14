@@ -8,10 +8,12 @@ import PetRegister from "../pages/PetRegister";
 import User from "../pages/User";
 import Contact from "../pages/Contact";
 import Rating from "../pages/Rating";
+import Header from "../components/Organisms/Header"
 
 const Routes = () => {
   return (
     <>
+      <Header/>
       <Switch>
         <Route exact path="/">
           <Home />

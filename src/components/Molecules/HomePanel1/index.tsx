@@ -9,8 +9,8 @@ const HomePanel1 = () => {
        <Panel1Div>
            <img src={backgroundHomePanel1}/>
             <div>
-               <h2>Ache o amigo ideal</h2>
-               <h2>para voçê</h2>
+               <h2>Encontre o amigo </h2>
+               <h2>ideal para voçê</h2>
                   <h4>Ajude a fazer uma boa ação</h4>
                   <ButtonHome label="REGISTRE-SE" image_source={heartButton}></ButtonHome>
              </div>       
