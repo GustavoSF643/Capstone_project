@@ -2,6 +2,7 @@ import { Card, CardDescription, ButtonContainer, CardInfo } from "./style";
 import ButtonFavorites from "../../Atomos/ButtonFavorites";
 import { PetProps } from "./../../../types/DecodedProps";
 import { useHistory } from "react-router-dom";
+import { useUserInfo } from "./../../../Providers/UserInfo";
 
 interface CardPetProps {
   img: string;
@@ -13,6 +14,7 @@ interface CardPetProps {
 }
 
 const CardPet = ({ img, name, breed, gender, age, id }: CardPetProps) => {
+  const { isLogin } = useUserInfo();
   const history = useHistory();
 
   const handleClick = () => {
@@ -21,7 +23,7 @@ const CardPet = ({ img, name, breed, gender, age, id }: CardPetProps) => {
 
   return (
     <Card img={img} onClick={handleClick}>
-      <ButtonContainer onClick={(e) => e.stopPropagation()}>
+        {isLogin && <ButtonContainer onClick={(e) => e.stopPropagation()}>
         <ButtonFavorites
           pet={{
             img: img,
@@ -32,7 +34,8 @@ const CardPet = ({ img, name, breed, gender, age, id }: CardPetProps) => {
             id: id,
           }}
         />
-      </ButtonContainer>
+      </ButtonContainer>}
+
       <CardInfo>
         <CardDescription>
           <h1>{name}</h1>
