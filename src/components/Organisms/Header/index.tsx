@@ -53,14 +53,10 @@ const Header = () => {
         <img src={LogoHeader} />
       </LogoDiv>
       <MenuHeader />
-      {userMenuOpened && (
-        <UserMenuDiv>
-          {userName && <UserMenu />}
-        </UserMenuDiv>
-      )}
+      {userMenuOpened && <UserMenuDiv>{userName && <UserMenu />}</UserMenuDiv>}
       {token ? (
         <UserImgDiv onClick={() => setUsermenuOpened(!userMenuOpened)}>
-          {userImg && <img src={userImg} />}
+          {userImg ? <img src={userImg} /> : <img src={Vector} />}
         </UserImgDiv>
       ) : (
         <>
