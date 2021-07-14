@@ -3,6 +3,7 @@ import CardPet from "../../Molecules/CardPet";
 import { UserFavoritesDiv, NotFavoritesDiv } from "./style";
 import { useUserInfo } from "../../../Providers/UserInfo";
 import { User } from "../../../types/User";
+import { ProviderProps } from "../../../types/ProviderProps";
 
 interface Pet {
   img: string;
@@ -11,10 +12,6 @@ interface Pet {
   gender: string;
   age: number;
   id: number;
-}
-
-interface ProviderProps {
-  user: User;
 }
 
 const UserFavorites = () => {
