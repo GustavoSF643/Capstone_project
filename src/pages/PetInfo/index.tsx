@@ -27,7 +27,7 @@ const PetInfo = () => {
   const [token] = useState<string | null>(
     JSON.stringify(localStorage.getItem("@petMacher:token") || null)
   );
-  const [owner, setOwner] = useState<boolean>(true);
+  const [owner, setOwner] = useState<boolean>(false);
 
   useEffect(() => {
     api
