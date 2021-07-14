@@ -4,10 +4,9 @@ import Input from "./../../components/Atomos/Input";
 import SelectForm from "./../../components/Atomos/SelectForm";
 import LargeButton from "./../../components/Atomos/LargeButton";
 import TextArea from "./../../components/Atomos/Textarea";
+import { useUserInfo } from "./../../Providers/UserInfo";
 import * as yup from "yup";
-import { DecodedProps } from "./../../types/DecodedProps";
-import jwt_decode from "jwt-decode";
-import { useState } from "react";
+import api from "./../../services/api";
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -30,39 +29,44 @@ interface OnsubmitProps {
 }
 
 const PetRegister = () => {
-  const [token] = useState<string | null>(
-    JSON.stringify(localStorage.getItem("@petMacher:token") || null)
-  );
+  const { tokenParse, user, decode } = useUserInfo();
+
 
   const onSubmit = (data : any) => {
-    if (token) {
-      const decode: DecodedProps = jwt_decode(token);
-      const newToken = JSON.parse(token);
-      
-      const newData = {
-        name: data.name,
-        type: data.type,
-        breed: data.breed,
-        gender: data.gender,
-        age: data.age,
-        size: data.size,
-        color: data.color,
-        coat: data.coat,
-        health: data.health,
-        currentState: 0,
-        img: data.img,
-        about: {
-          
-        },
-        userInfo: {
-          
-        },
-        userId: decode.sub
-      }
-      console.log(data)
-      // "currentState": 0,
-      
+    const newData = {
+      name: data.name,
+      type: data.type,
+      breed: data.breed,
+      gender: data.gender,
+      age: data.age,
+      size: data.size,
+      color: data.color,
+      coat: data.coat,
+      health: data.health,
+      currentState: 0,
+      img: data.img,
+      about: {
+        description: data.description,
+        behavior: data.behavior,
+        history: data.history
+      },
+      userInfo: {
+        fullName: user.fullName,
+        state: user.info.state,
+        city: user.info.city,
+        imgUser: user.img,
+        contact: user.contact,
+        email: user.email
+      },
+      userId: Number(decode)
     }
+      api.post("pets", newData, {
+        headers: {
+          Authorization: `Bearer ${tokenParse}`,
+        },
+      })
+        .then(response => console.log(response))
+        .catch(err => console.log(err, err.response))
   }
 
   return (
@@ -81,6 +85,7 @@ const PetRegister = () => {
           <Input name="color" label="Cor" placeholder="Preencher"/>
           <Input name="coat" label="Pelagem" placeholder="Preencher"/>
           <H2>Sobre</H2>
+          
           <TextArea name="description" label="Descrição" placeholder="Preencher"/>
           <Input name="health" label="Saúde" placeholder="Preencher"/>
           <TextArea name="history" label="História" placeholder="Preencher"/>

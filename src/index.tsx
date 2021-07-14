@@ -6,12 +6,15 @@ import GlobalStyle from "./styles/global";
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Providers from "./Providers";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <GlobalStyle />
-      <App />
+        <Providers>
+          <App />
+        </Providers>
       <ToastContainer />
     </BrowserRouter>
   </React.StrictMode>,
