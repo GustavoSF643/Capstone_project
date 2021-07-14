@@ -13,11 +13,6 @@ const HomePanel5 = () => {
            <Panel5Img src={backgroundHomePanel5}/>
             <Panel5DivInterna> 
               <div>
-                <ImgSimbol src={people} alt="people"/>
-                <p>5 <ImgPlus src={plusSimbol} alt="people"/> </p>
-              </div>
-
-              <div>
                 <ImgSimbol src={cat_orange} alt="cat_orange"/>
                 <p>5 <ImgPlus src={plusSimbol} alt="people"/> </p> 
               </div> 

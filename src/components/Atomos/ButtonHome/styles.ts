@@ -16,7 +16,7 @@ export const Container = styled.button`
     width: 28px;
     height: 21px;
     margin-top: 4px;
-    margin-left: 8px;   
+    margin-left: 8px; 
+    z-index:2 ;
   }
-
 `;

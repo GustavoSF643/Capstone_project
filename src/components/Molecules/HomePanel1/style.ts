@@ -3,15 +3,13 @@ import styled from "styled-components";
 export const Panel1Div = styled.div`
     color: #694B3C;
     font-family: Roboto, 'Open Sans', sans-serif ; 
-    width: 200vh;
-    height:100%;
+    width: 90vw;
     padding: 10px; 
     margin: 0 auto; 
 
     img{
         z-index: -1;
-        width: 200vh;
-        height: 700px;
+        width: 90vw;
         position: absolute; 
         margin: 0 auto;        
     }

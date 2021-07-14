@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Panel4Div = styled.div`
     color: #694B3C;
     font-family: Roboto, 'Open Sans', sans-serif ; 
-    width: 90%;
+    width: 80vw;
     height:80vh;
     padding: 10px; 
     display: flex; 
@@ -11,6 +11,7 @@ export const Panel4Div = styled.div`
     align-items: center;
     justify-content: space-around;
     margin:20px auto; 
+    text-align: center;
 
     h2{
         font-size: 40px ;

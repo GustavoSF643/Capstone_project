@@ -1,6 +1,7 @@
 import {Panel6Div, PanelDivEsquerda,PanelDivDireita} from "./style"; 
 import ButtonHome2 from "../../Atomos/ButtonHome2";
 import patinha_botao from "../../../assets/patinha_botao.png";
+import {Link} from "react-router-dom"; 
 
 const HomePanel6 = () => {
     return (
@@ -12,7 +13,9 @@ const HomePanel6 = () => {
                         Deseja tabem deixar a sua avaliação?
                         Clique no botão avaliar. 
                     </h4>
-                    <ButtonHome2 label="AVALIAR" image_source={patinha_botao}></ButtonHome2>
+                    <Link to="/rating">
+                        <ButtonHome2 label="AVALIAR" image_source={patinha_botao}></ButtonHome2>
+                    </Link>
                </PanelDivEsquerda> 
                <PanelDivDireita>
                               

@@ -4,11 +4,10 @@ export const FooterDiv = styled.div`
     background-color: #694B3C; 
     color: white; 
     width: 100%;
-    height: 180px;
     padding:10px; 
     display: flex;
     flex-direction: row;  
-    align-items: center;
+    align-items: right;
     justify-content: space-evenly;
 
     a {
@@ -21,20 +20,13 @@ export const FooterDiv = styled.div`
     img{
         width: 200px;
         height: 75px;   
-    }   
-
-    div{
-        display: flex;
-        flex-direction: column; 
-        align-items: center;
-        justify-content: space-evenly;  
-        margin-top: 10px; 
-    }
+    }      
 `;
 
 export const Div = styled.div`
         display: flex;
-        flex-direction: column;  
+        flex-direction: column; 
+        align-items: center ;
 
         input{
             border-radius: 6px; 
@@ -53,12 +45,22 @@ export const Div = styled.div`
 `;
 
 export const Icons = styled.div`    
-    div{
+    
         display: flex;
         flex-direction: row;
         justify-content: space-between; 
-        align-items: center;
-    }       
+        align-items: center; 
+`;
+
+export const DivIcons = styled.div`    
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; 
+        align-items: center; 
+        div{
+            margin: 30px; 
+        }    
 `;
 
 export const CopyrigthDiv = styled.div`
@@ -68,9 +70,9 @@ export const CopyrigthDiv = styled.div`
     height: 50px;
     padding:10px; 
     display: flex;
-    flex-direction: row;  
     align-items: center;
     justify-content: space-evenly;
 `;
+
 
 
