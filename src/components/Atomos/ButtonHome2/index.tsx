@@ -6,7 +6,7 @@ interface ButtonHomeProps {
   image_source: string;
 }
 
-const ButtonHome = ({ label, image_source }: ButtonHomeProps) => {
+const ButtonHome2 = ({ label, image_source }: ButtonHomeProps) => {
   return (
     <>
       <Container>
@@ -15,4 +15,4 @@ const ButtonHome = ({ label, image_source }: ButtonHomeProps) => {
     </>
   );
 };
-export default ButtonHome;
+export default ButtonHome2;
