@@ -1,27 +1,34 @@
 import { StarContainer } from "../StarRating/style";
 import { AiOutlineStar } from "react-icons/ai";
 import { FaStar } from "react-icons/fa";
-
 import { useState } from "react";
 
-const StarRating = () => {
-  const [rating, setRating] = useState(0);
+interface StarRatingProps {
+  register?: any;
+  name: string;
+}
+
+const StarRating = ({ name, register }: StarRatingProps) => {
+  const [rating, setRating] = useState<number>(0);
 
   return (
     <StarContainer>
       {[...Array(5)].map((star, index) => {
         const ratingValue = index + 1;
-
         return (
-          <label>
+          <label key={index}>
             <input
+              {...register(name)}
               type="radio"
-              name="rating"
               value={ratingValue}
               onClick={() => setRating(ratingValue)}
             />
             <span>
-              {ratingValue <= rating ? <FaStar /> : <AiOutlineStar />}
+              {ratingValue <= rating ? (
+                <FaStar size="3em" />
+              ) : (
+                <AiOutlineStar size="3em" />
+              )}
             </span>
           </label>
         );
