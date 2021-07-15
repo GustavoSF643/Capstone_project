@@ -11,11 +11,13 @@ import {
   ContainerPeoples,
 } from "./style";
 import PetInfoCard from "../../components/Molecules/PetInfoCard";
-import { DecodedProps, PetProps } from "../../types/DecodedProps";
+import { PetProps } from "../../types/DecodedProps";
 import { MdPlace, MdEmail } from "react-icons/md";
 import { GiSmartphone } from "react-icons/gi";
-import jwt_decode from "jwt-decode";
 import InterestedPeopleCard from "../../components/Molecules/InterestedPeopleCard";
+import { ProviderProps } from "../../types/ProviderProps";
+import { useUserInfo } from "../../Providers/UserInfo";
+import { AxiosResponse } from "axios";
 
 interface ParamProps {
   petId: string;
@@ -24,33 +26,42 @@ interface ParamProps {
 const PetInfo = () => {
   const { petId }: ParamProps = useParams();
   const [pet, setPet] = useState<PetProps>(Object);
-  const [token] = useState<string | null>(
-    JSON.stringify(localStorage.getItem("@petMacher:token") || null)
-  );
+  const [ownerId, setOwnerId] = useState<number>();
   const [owner, setOwner] = useState<boolean>(false);
 
-  useEffect(() => {
+  const {
+    user: { id },
+  }: ProviderProps = useUserInfo();
+
+  const getPet = () => {
     api
       .get(`pets?id=${petId}`)
-      .then((pet: any) => setPet(pet.data[0]))
+      .then((pet: AxiosResponse) => {
+        setPet(pet.data[0]);
+        setOwnerId(pet.data[0].userId);
+      })
       .catch((err) => console.error(err));
-  }, [petId]);
+  };
 
   useEffect(() => {
-    if (token) {
-      const decode: DecodedProps = jwt_decode(token);
-      if (parseInt(decode.sub) === pet.userId) {
+    if (petId) {
+      getPet();
+    }
+    if (ownerId && id) {
+      if (ownerId === id) {
         setOwner(true);
       }
     }
-  }, [pet, token]);
+  }, [petId, ownerId, id]);
 
   return (
     <Container>
       <PetInfoDiv>
-        <PetInfoCardDiv>
-          <PetInfoCard pet={pet}></PetInfoCard>
-        </PetInfoCardDiv>
+        {pet && (
+          <PetInfoCardDiv>
+            <PetInfoCard pet={pet} getPet={getPet}></PetInfoCard>
+          </PetInfoCardDiv>
+        )}
         <ContainerPeoples>
           {pet.userInfo && (
             <UserDiv>
@@ -76,10 +87,9 @@ const PetInfo = () => {
           {owner && (
             <InterestedPeopleDiv>
               <h3>Pessoas Interessadas</h3>
-              {pet.interestedPeople &&
-                pet.interestedPeople.map((people) => (
-                  <InterestedPeopleCard people={people} key={people.id} />
-                ))}
+              {pet.interestedPeople.map((people) => (
+                <InterestedPeopleCard people={people} key={people.id} />
+              ))}
             </InterestedPeopleDiv>
           )}
         </ContainerPeoples>

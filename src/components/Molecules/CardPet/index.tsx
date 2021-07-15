@@ -1,8 +1,8 @@
 import { Card, CardDescription, ButtonContainer, CardInfo } from "./style";
 import ButtonFavorites from "../../Atomos/ButtonFavorites";
-import { PetProps } from "./../../../types/DecodedProps";
 import { useHistory } from "react-router-dom";
 import { useUserInfo } from "./../../../Providers/UserInfo";
+import { toast } from "react-toastify";
 
 interface CardPetProps {
   img: string;
@@ -18,7 +18,11 @@ const CardPet = ({ img, name, breed, gender, age, id }: CardPetProps) => {
   const history = useHistory();
 
   const handleClick = () => {
-    history.push(`/dashboard/${id}`);
+    if (isLogin) {
+      history.push(`/dashboard/${id}`);
+    } else {
+      toast.info("É obrigatório estar logado!!")
+    }
   };
 
   return (

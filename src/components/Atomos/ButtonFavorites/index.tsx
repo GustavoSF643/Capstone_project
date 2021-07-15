@@ -29,7 +29,7 @@ const ButtonFavorites = ({ pet }: ButtonFavoritesProps) => {
   const [like, setLike] = useState(false);
 
   const {
-    user: { favorites, id },
+    user: { id, favorites },
     tokenParse,
   }: ProviderProps = useUserInfo();
 
@@ -40,21 +40,22 @@ const ButtonFavorites = ({ pet }: ButtonFavoritesProps) => {
           Authorization: `Bearer ${tokenParse}`,
         },
       })
-      .then((user: AxiosResponse) =>
-        setLike(
-          user.data.favorites.some(
+      .then((user: AxiosResponse) => {
+        if (pet.id) {
+          const booleanFavorites = user.data.favorites.some(
             (petFavorite: Pet) => petFavorite.id === pet.id
-          )
-        )
-      )
+          );
+          setLike(booleanFavorites);
+        }
+      })
       .catch((error) => console.error(error));
   };
 
   useEffect(() => {
-    if (favorites) {
+    if (tokenParse && id && pet.id) {
       checkFavorites();
     }
-  }, [favorites]);
+  }, [tokenParse, id, pet.id]);
 
   const addLike = () => {
     api
@@ -116,11 +117,11 @@ const ButtonFavorites = ({ pet }: ButtonFavoritesProps) => {
   return (
     <>
       {like ? (
-        <Button onClick={removeLike}>
+        <Button onClick={() => removeLike()}>
           <FaHeart />
         </Button>
       ) : (
-        <Button onClick={addLike}>
+        <Button onClick={() => addLike()}>
           <FaRegHeart />
         </Button>
       )}

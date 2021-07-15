@@ -13,21 +13,24 @@ export const Container = styled.div<ContainerProps>`
   height: 80px;
   background-color: white;
 
-  > p {
-    margin: 7px 0;
+  > label {
+    margin: 4px 0;
     font-size: 17px;
     font-family: var(--font-family-third);
     color: var(--third);
+    display: flex;
+    flex-direction: column;
+    
   }
 
-  > input {
+  input {
     margin-top: 10px;
     width: 100%;
     border: none;
     font-size: 15px;
   }
 
-  > span {
+  span {
     color: var(--err);
     position: relative;
     top: 20px;
@@ -36,16 +39,17 @@ export const Container = styled.div<ContainerProps>`
   @media (min-width: 768px) {
     padding: 8px 8px 10px 26px;
 
-    > p {
+    > label {
       font-size: 24px;
+      margin: 0;
+
     }
 
-    > input {
+     input {
       font-size: 18px;
-      margin-top: 0px;
     }
 
-    > span {
+    span {
       top: 10px;
     }
   }

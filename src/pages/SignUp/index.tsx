@@ -42,6 +42,7 @@ const SignUp = () => {
       password: data.password,
       age: data.age,
       contact: data.contact,
+      img: data.img,
       info: {
         district: data.district,
         state: data.state,

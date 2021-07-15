@@ -81,4 +81,3 @@ export const Panel1Div = styled.div`
     
 
 `;
-

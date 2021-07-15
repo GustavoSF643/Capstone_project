@@ -30,7 +30,6 @@ export const Container = styled.button`
       height: 14px;
       margin-top: 3px;
       margin-left: 5px; 
-      z-index:2 ;
     }
   }
 
@@ -44,7 +43,6 @@ export const Container = styled.button`
       height: 10px;
       margin-top: 3px;
       margin-left: 3px; 
-      z-index:2 ;
     }
   }
 `;

@@ -60,7 +60,7 @@ export const Container = styled.div`
       align-items: center;
       gap: 10px;
 
-      max-width: 500px;
+      max-width: 1000px;
 
       > button {
         max-width: 450px; 

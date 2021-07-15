@@ -6,13 +6,14 @@ export const UserMenuDiv = styled.div`
   background-color: var(--third);
   width: 233px;
   align-items: center;
+  border: 1px solid white;
 
   h3 {
     font-size: 24px;
     font-family: var(--font-family-second);
     color: white;
     border-bottom: 1px solid white;
-    width: 170px;
+    width: 100%;
     text-align: center;
     padding: 5px;
     min-height: 52.5px;
@@ -33,5 +34,18 @@ export const UserMenuDiv = styled.div`
 
   & :last-child {
     border-bottom: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+
+    h3 {
+      min-height: 40px;
+      font-size: 1.1rem;
+    }
+
+    a {
+      font-size: 0.9rem;
+    }
   }
 `;
