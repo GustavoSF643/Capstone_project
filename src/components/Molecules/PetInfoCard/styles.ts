@@ -18,7 +18,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     width: 300px;
-    height: 1500px;
+    height: 1300px;
 
     div {
       display: flex;
@@ -57,9 +57,11 @@ export const ImageContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    border-radius: 0px;
+    border-radius: 10px;
+    width: 280px;
+    height: 280px;
     img {
-      border-radius: 0px;
+      border-radius: 10px;
     }
   }
 `;
