@@ -6,8 +6,8 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  position: relative;
   height: 100vh;
+  width: 100%;
 
   h2 {
     font-size: 4rem;
@@ -16,19 +16,7 @@ export const Container = styled.div`
   }
 
   img {
-    width: 800px;
-    margin: 35px 0;
-    z-index: 2;
-  }
-
-  h1 {
-    height: 590px;
-    width: 700px;
-    font-size: 25rem;
-    color: #e1e1e1;
-    font-family: var(--font-family-fourth);
-    font-weight: bold;
-    position: absolute;
+    width: 45%;
   }
 
   h3 {
@@ -42,5 +30,16 @@ export const Container = styled.div`
     font-size: 2rem;
     color: rgb(0, 0, 0, 0.7);
     margin-bottom: 60px;
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 3.2rem;
+    }
+
+    h3,
+    p {
+      text-align: center;
+    }
   }
 `;

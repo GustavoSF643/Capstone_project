@@ -50,8 +50,8 @@ const Contact = () => {
       <Container>
         <h1>Contatos</h1>
         <ContainerCard>
-          {crewList.map((crew) => (
-            <Card>
+          {crewList.map((crew, index) => (
+            <Card key={index}>
               <img src={crew.img} />
               <h2>{crew.name}</h2>
               <h3>{crew.role}</h3>

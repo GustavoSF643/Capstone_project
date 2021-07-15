@@ -45,7 +45,7 @@ export const Card = styled.div`
   border-radius: 20px;
   align-items: center;
   padding: 40px 0;
-  margin: 10px;
+  margin: 20px;
 
   img {
     width: 100px;

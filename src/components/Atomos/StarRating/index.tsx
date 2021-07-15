@@ -25,9 +25,9 @@ const StarRating = ({ name, register }: StarRatingProps) => {
             />
             <span>
               {ratingValue <= rating ? (
-                <FaStar size="3em" />
+                <FaStar size="4em" />
               ) : (
-                <AiOutlineStar size="3em" />
+                <AiOutlineStar size="4em" />
               )}
             </span>
           </label>

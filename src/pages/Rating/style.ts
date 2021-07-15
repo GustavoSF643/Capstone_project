@@ -5,6 +5,10 @@ export const Container = styled.div`
 `;
 
 export const RatingContainer = styled.div`
+  width: 80vw;
+  margin: 0 auto;
+  margin-bottom: 70px;
+
   h1 {
     font-size: 3.2rem;
     text-align: center;
@@ -14,13 +18,19 @@ export const RatingContainer = styled.div`
   }
 
   svg {
-    width: 80px;
+    width: 80%;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
   }
 `;
 
 export const CardContainer = styled.div`
-  margin: 100px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
 `;
