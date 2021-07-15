@@ -4,12 +4,25 @@ export const Container = styled.div`
   width: 90vw;
   min-width: 900px;
   margin: 120px auto;
+
+  @media (max-width: 768px) {
+    width: 100vw;
+  }
 `;
 
 export const ContainerPeoples = styled.div`
   display: flex;
   flex-direction: column;
   width: 28%;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+  }
 `;
 
 export const PetInfoDiv = styled.div`
@@ -17,6 +30,15 @@ export const PetInfoDiv = styled.div`
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+  }
 `;
 
 export const PetInfoCardDiv = styled.div`
@@ -24,6 +46,14 @@ export const PetInfoCardDiv = styled.div`
   min-width: 600px;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-shadow: unset;
+    margin-top: 50px;
+  }
 `;
 
 export const UserDiv = styled.div`
