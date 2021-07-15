@@ -8,6 +8,8 @@ import { useUserInfo } from "./../../Providers/UserInfo";
 import * as yup from "yup";
 import api from "./../../services/api";
 import { toast } from "react-toastify";
+import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -24,10 +26,6 @@ const schema = yup.object().shape({
   img: yup.string(),
   history: yup.string().required()
 })
-
-interface OnsubmitProps {
-  
-}
 
 interface DataProps {
   name: string,
@@ -46,9 +44,9 @@ interface DataProps {
 }
 
 const PetRegister = () => {
-  const { tokenParse, user, decode } = useUserInfo();
+  const { tokenParse, user, decode, isLogin } = useUserInfo();
 
-  const onSubmit = (data: DataProps, reset: any) => {
+  const apiCall = (data: DataProps, reset: any, imgPet: string) => {
     const newData = {
       name: data.name,
       type: data.type,
@@ -60,7 +58,7 @@ const PetRegister = () => {
       coat: data.coat,
       health: data.health,
       currentState: 0,
-      img: data.img,
+      img: imgPet,
       about: {
         description: data.description,
         behavior: data.behavior,
@@ -89,6 +87,32 @@ const PetRegister = () => {
           reset();
         })
         .catch(err => console.log(err, err.response))
+  }
+
+  async function randomPet(url: string, data: DataProps, reset:any, type: string) {
+    const response = await axios.get(url);
+    let petImg = "";
+
+    if (type === "cat") {
+      petImg = response.data[0].url;
+    } else {
+      petImg = response.data.message
+    }
+    apiCall(data, reset, petImg);
+  }
+
+  const onSubmit = (data: DataProps, reset: any) => {
+    if(data.img.length < 15 && data.type === "Gato") {
+      randomPet("https://api.thecatapi.com/v1/images/search", data, reset, "cat");
+    } else if (data.img.length < 15 && data.type === "Cachorro") {
+      randomPet("https://dog.ceo/api/breeds/image/random", data, reset, "dog");
+    } else {
+      apiCall(data, reset, data.img);
+    }
+  }
+
+  if(!isLogin) {
+    return <Redirect to="/signup" />
   }
 
   return (
