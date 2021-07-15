@@ -23,11 +23,13 @@ const Input = ({ register, name, label, err, ...rest }: InputProps) => {
   
   return (
     <Container isErr={isErr}>
-      <p>{label}</p>
-      <input 
-        {...register(name)} 
-        {...rest} 
-      />
+      <label>
+        {label}
+        <input 
+          {...register(name)} 
+          {...rest} 
+        />
+      </label>
       <span>{err[`${name}`]?.message}</span>
     </Container>
     );
