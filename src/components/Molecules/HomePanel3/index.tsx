@@ -4,6 +4,7 @@ import CardKelo from "../../../assets/CardKelo.png";
 import CardPeggy from "../../../assets/CardPeggy.png";
 import CardRudy from "../../../assets/CardRudy.png";
 import ButtonHome2 from "../../Atomos/ButtonHome2";
+import { Link } from "react-router-dom"; 
 
 
 const HomePanel3 = () => {
@@ -19,7 +20,9 @@ const HomePanel3 = () => {
                     <ImgCard src={CardRudy}/>
                </PanelDivInterna>   
                <PanelDivInterna> 
-                    <ButtonHome2 label="VEJA MAIS" image_source={patinha_botao}></ButtonHome2>
+                    <Link to="/dashboard">
+                         <ButtonHome2 label="VEJA MAIS" image_source={patinha_botao}></ButtonHome2>
+                    </Link>
                </PanelDivInterna> 
        </Panel3Div> 
      </> 
