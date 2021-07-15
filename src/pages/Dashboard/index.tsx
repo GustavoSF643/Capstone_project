@@ -93,27 +93,23 @@ const Dashboard = () => {
               value="Selecionar"
             />
           </label>
-
           <label>
             <input {...register("type")} type="radio" value="Dog" />
             <img src={Dog} />
           </label>
-
           <label>
             <input {...register("type")} type="radio" value="Cat" />
             <img src={Cat} />
           </label>
         </PetsIcon>
-
         <RestForm>
           <Select
             name="state"
             register={register}
             label="Estado"
-            options={["Selecionar", "Paraná", "Sc", "Am", "Es"]}
+            options={["Selecionar", "Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Espírito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins", "Distrito Federal"]}
           />
           <AloneInput {...register("city")} placeholder="Cidade" />
-
           <Select
             name="gender"
             register={register}
@@ -126,9 +122,8 @@ const Dashboard = () => {
             register={register}
             options={["Selecionar", "Small", "Medium", "Big"]}
           />
-
-          <LargeButton type="submit">Buscar</LargeButton>
         </RestForm>
+          <LargeButton type="submit">Buscar</LargeButton>
       </FormStyles>
 
       <ContainerCards>
