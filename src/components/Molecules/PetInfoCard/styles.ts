@@ -12,6 +12,21 @@ export const Container = styled.div`
   border-radius: 20px;
   margin: 0 auto;
   padding: 30px;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 1500px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 5px;
+    }
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -65,6 +80,12 @@ export const TextContainer = styled.div`
     border: 1px solid rgba(128, 128, 128, 0.42);
     margin: 0 auto;
   }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 18px;
+    }
+  }
 `;
 
 export const Attributes = styled.div`
@@ -74,6 +95,16 @@ export const Attributes = styled.div`
   width: 100%;
   height: 5%;
   justify-content: space-around;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 400px;
+    margin: 20px;
+  }
 `;
 
 export const About = styled.div`
@@ -89,6 +120,19 @@ export const About = styled.div`
   h6 {
     margin-top: 10px;
   }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 20px;
+    }
+    h6 {
+      margin-top: 12px;
+    }
+    margin: 20px;
+    width: 80%;
+
+    height: fit-content;
+  }
 `;
 
 export const History = styled.div`
@@ -96,7 +140,7 @@ export const History = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  margin: 10px;
+  margin: 30px;
   height: 10%;
 
   h2 {
@@ -104,6 +148,15 @@ export const History = styled.div`
   }
   p {
     margin-top: 10px;
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 20px;
+    }
+    margin: 20px;
+    width: 80%;
+    height: fit-content;
   }
 `;
 
@@ -113,4 +166,13 @@ export const ButtonContainer = styled.div`
   position: absolute;
   top: 20px;
   right: 30px;
+`;
+
+export const Title = styled.div`
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
 `;

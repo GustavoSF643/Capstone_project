@@ -6,6 +6,7 @@ import {
   About,
   ImageContainer,
   ButtonContainer,
+  Title,
 } from "./styles";
 import LargeButton from "../../Atomos/LargeButton";
 import ButtonFavorites from "../../Atomos/ButtonFavorites";
@@ -108,13 +109,13 @@ const PetInfoCard = ({ pet, getPet }: PetInfoCardProps) => {
         </ImageContainer>
 
         <TextContainer>
-          <div>
+          <Title>
             <h1>{pet.name}</h1>
             <p>
               {pet.userInfo && pet.userInfo.city},
               {pet.userInfo && pet.userInfo.state}
             </p>
-          </div>
+          </Title>
           <hr />
           <Attributes>
             <label>{pet.breed}</label>&bull;
