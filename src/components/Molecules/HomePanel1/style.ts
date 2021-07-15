@@ -60,7 +60,7 @@ export const Panel1Div = styled.div`
 
     @media screen and ( max-width:767px){
         padding: 20px 0 ;
-        margin: 30px auto 0; 
+        margin: 10px auto 0; 
 
         div{
             width: 60%;
