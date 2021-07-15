@@ -11,17 +11,12 @@ interface UserPetsProps {
 
 const UserPets = ({ userId }: UserPetsProps) => {
   const [userPets, setUserPets] = useState<PetProps[]>([]);
-  const [notPets, setNotPets] = useState<boolean>(false);
 
   useEffect(() => {
     api
       .get(`pets?userId=${userId}`)
       .then((pets: any) => {
-        if (pets.data.length === 0) {
-          setNotPets(true);
-        } else {
-          setUserPets(pets.data);
-        }
+        setUserPets(pets.data);
       })
       .catch((error) => console.error(error));
   }, [userId]);
@@ -40,7 +35,7 @@ const UserPets = ({ userId }: UserPetsProps) => {
             id={pet.id}
           />
         ))}
-      {notPets && (
+      {userPets && userPets.length === 0 && (
         <NotPetsDiv>
           <h3>Vocẽ não possui nenhum pet para adoção.</h3>
         </NotPetsDiv>
