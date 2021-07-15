@@ -11,14 +11,17 @@ export const UserInfoDiv = styled.div`
   gap: 30px;
 
   @media screen and (max-width: 768px) {
-    padding: 10px 0 50px 30px;
+    padding: 50px 0 100px 0;
     min-height: 250px;
+    flex-direction: column;
+    gap: 40px;
   }
 `;
 
 export const InfoImageDiv = styled.div`
-  width: 200px;
-  height: 200px;
+  min-width: 200px;
+  max-width: 200px;
+  max-height: 200px;
   overflow: hidden;
   border-radius: 100%;
 
@@ -27,8 +30,9 @@ export const InfoImageDiv = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    width: 100px;
-    height: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    max-height: 100px;
   }
 `;
 
@@ -49,6 +53,9 @@ export const InfoDiv = styled.div`
   @media screen and (max-width: 768px) {
     margin: 0;
     margin-left: 20px;
+    justify-content: left;
+    width: 100%;
+    padding-left: 10px;
 
     & > h3 {
       font-size: 1.2rem;
@@ -64,4 +71,11 @@ export const ButtonDiv = styled.div`
   position: absolute;
   right: 30px;
   bottom: 5px;
+
+  @media screen and (max-width: 768px) {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 200px;
+  }
 `;
