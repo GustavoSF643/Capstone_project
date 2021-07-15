@@ -79,12 +79,12 @@ const Rating = () => {
     <>
       <Container>
         <RatingContainer>
-          <h1>Faca sua avaliacao!</h1>
+          <h1>Faça sua avaliação!</h1>
           <Form onSubmit={onSubmit} schema={schema}>
-            <Input name="title" label="Titulo" placeholder="Preencher" />
+            <Input name="title" label="Título" placeholder="Preencher" />
             <TextArea
               name="comment"
-              label="Descricao"
+              label="Descrição"
               placeholder="Preencher"
             />
             <StarRating name="star" />
