@@ -18,7 +18,7 @@ export const LoginDiv = styled.div`
   width: 70vw;
   max-width: 1000px;
   min-width: 500px;
-  height: 700px;
+  height: 70vh;
   background: #ffffff;
   border-radius: 20px;
   position: fixed;
@@ -34,8 +34,14 @@ export const LoginDiv = styled.div`
   padding: 50px;
 
   h3 {
-    font-size: 48px;
+    font-size: 36px;
     color: var(--third);
+  }
+
+  @media screen and (max-width: 768px) {
+    min-width: 85vw;
+    height: 70vh;
+    padding: 30px;
   }
 `;
 
@@ -44,9 +50,19 @@ export const Xdiv = styled.div`
   top: 10px;
   right: 10px;
   cursor: pointer;
+
+  & > img {
+    width: 40px;
+  }
 `;
 
 export const LoginFormDiv = styled.div`
   display: block;
   margin: auto 0;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    height: 70%;
+  }
 `;
