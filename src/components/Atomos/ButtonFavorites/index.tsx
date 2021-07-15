@@ -34,33 +34,28 @@ const ButtonFavorites = ({ pet }: ButtonFavoritesProps) => {
   }: ProviderProps = useUserInfo();
 
   const checkFavorites = () => {
-    // api
-    //   .get(`users/${id}`, {
-    //     headers: {
-    //       Authorization: `Bearer ${tokenParse}`,
-    //     },
-    //   })
-    //   .then((user: AxiosResponse) =>
-    //     setLike(
-    //       user.data.favorites.some(
-    //         (petFavorite: Pet) => petFavorite.id === pet.id
-    //       )
-    //     )
-    //   )
-    //   .catch((error) => console.error(error));
+    api
+      .get(`users/${id}`, {
+        headers: {
+          Authorization: `Bearer ${tokenParse}`,
+        },
+      })
+      .then((user: AxiosResponse) => {
+        if (pet.id) {
+          const booleanFavorites = user.data.favorites.some(
+            (petFavorite: Pet) => petFavorite.id === pet.id
+          );
+          setLike(booleanFavorites);
+        }
+      })
+      .catch((error) => console.error(error));
   };
 
-  // useEffect(() => {
-  //   if (tokenParse && id) {
-  //     checkFavorites();
-  //   }
-  // }, [tokenParse, id]);
-
   useEffect(() => {
-    if (favorites) {
-      setLike(favorites.some((petFavorite: Pet) => petFavorite.id === pet.id));
+    if (tokenParse && id && pet.id) {
+      checkFavorites();
     }
-  }, [favorites]);
+  }, [tokenParse, id, pet.id]);
 
   const addLike = () => {
     api

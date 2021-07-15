@@ -17,6 +17,7 @@ import { GiSmartphone } from "react-icons/gi";
 import InterestedPeopleCard from "../../components/Molecules/InterestedPeopleCard";
 import { ProviderProps } from "../../types/ProviderProps";
 import { useUserInfo } from "../../Providers/UserInfo";
+import { AxiosResponse } from "axios";
 
 interface ParamProps {
   petId: string;
@@ -25,6 +26,7 @@ interface ParamProps {
 const PetInfo = () => {
   const { petId }: ParamProps = useParams();
   const [pet, setPet] = useState<PetProps>(Object);
+  const [ownerId, setOwnerId] = useState<number>();
   const [owner, setOwner] = useState<boolean>(false);
 
   const {
@@ -34,21 +36,23 @@ const PetInfo = () => {
   const getPet = () => {
     api
       .get(`pets?id=${petId}`)
-      .then((pet: any) => setPet(pet.data[0]))
+      .then((pet: AxiosResponse) => {
+        setPet(pet.data[0]);
+        setOwnerId(pet.data[0].userId);
+      })
       .catch((err) => console.error(err));
   };
 
   useEffect(() => {
-    getPet();
-  }, [petId]);
-
-  useEffect(() => {
-    if (pet && id) {
-      if (id === pet.userId) {
+    if (petId) {
+      getPet();
+    }
+    if (ownerId && id) {
+      if (ownerId === id) {
         setOwner(true);
       }
     }
-  }, [pet, id]);
+  }, [petId, ownerId, id]);
 
   return (
     <Container>
@@ -83,10 +87,9 @@ const PetInfo = () => {
           {owner && (
             <InterestedPeopleDiv>
               <h3>Pessoas Interessadas</h3>
-              {pet.interestedPeople &&
-                pet.interestedPeople.map((people) => (
-                  <InterestedPeopleCard people={people} key={people.id} />
-                ))}
+              {pet.interestedPeople.map((people) => (
+                <InterestedPeopleCard people={people} key={people.id} />
+              ))}
             </InterestedPeopleDiv>
           )}
         </ContainerPeoples>
