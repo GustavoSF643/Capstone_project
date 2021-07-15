@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 90vw;
-  min-width: 900px;
   margin: 120px auto;
 
   @media (max-width: 768px) {
@@ -43,7 +42,6 @@ export const PetInfoDiv = styled.div`
 
 export const PetInfoCardDiv = styled.div`
   width: 67%;
-  min-width: 600px;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
 
