@@ -55,6 +55,15 @@ export const ImageContainer = styled.div`
     min-width: 100%;
     min-height: 100%;
   }
+
+  @media (max-width: 768px) {
+    border-radius: 10px;
+    img {
+      border-radius: 10px;
+      width: 100%;
+      height: 100%;
+    }
+  }
 `;
 
 export const TextContainer = styled.div`

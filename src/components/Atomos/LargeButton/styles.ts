@@ -22,4 +22,11 @@ export const LargeButtonStyled = styled.button`
   @media (min-width: 768px) {
     width: 450px;
   }
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    font-size: 16px;
+    height: 55px;
+    width: 200px;
+  }
 `;
