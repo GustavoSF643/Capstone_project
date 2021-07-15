@@ -57,11 +57,9 @@ export const ImageContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    border-radius: 10px;
+    border-radius: 0px;
     img {
-      border-radius: 10px;
-      width: 100%;
-      height: 100%;
+      border-radius: 0px;
     }
   }
 `;
