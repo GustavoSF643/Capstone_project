@@ -1,6 +1,9 @@
 import { MenuHeaderDiv } from "./style";
+import { useUserInfo } from "./../../../Providers/UserInfo";
 
 const MenuHeader = () => {
+  const { isLogin } = useUserInfo();
+
   return (
     <MenuHeaderDiv>
       <a href="/dashboard">ADOTAR</a>
