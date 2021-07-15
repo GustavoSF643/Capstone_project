@@ -15,7 +15,6 @@ import { ProviderProps } from "../../../types/ProviderProps";
 import { useUserInfo } from "../../../Providers/UserInfo";
 import { useEffect } from "react";
 import api from "../../../services/api";
-import userEvent from "@testing-library/user-event";
 
 interface PetInfoCardProps {
   pet: PetProps;
@@ -34,10 +33,10 @@ const PetInfoCard = ({ pet, getPet }: PetInfoCardProps) => {
   const { interestedPeople } = pet;
 
   useEffect(() => {
-    if (interestedPeople) {
+    if (interestedPeople && pet) {
       setIsInterested(pet.interestedPeople.some((people) => id === people.id));
     }
-  }, [interestedPeople]);
+  }, [interestedPeople, pet]);
 
   const handleInterested = () => {
     const newData = {
