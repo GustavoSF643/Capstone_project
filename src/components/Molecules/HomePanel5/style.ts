@@ -56,7 +56,7 @@ export const Panel5DivInterna = styled.div`
     width: 50vw;
     margin: 0 auto; 
     color: white; 
-    padding-top:50px; 
+    padding-top:70px; 
 
     div{
         display: flex; 
@@ -71,6 +71,8 @@ export const Panel5DivInterna = styled.div`
     }
 
     @media screen and (min-width:768px) and (max-width:1023px){
+        padding-top:50px; 
+
         p{
              font-size: 36px; 
         }

@@ -25,7 +25,7 @@ export const Panel6Div = styled.div`
 
     @media screen and (min-width:768px) and (max-width:1023px){
         flex-direction: column; 
-        height: 120vh; 
+        height: 140vh; 
     }
 
     @media screen and ( max-width:767px){
@@ -69,12 +69,12 @@ export const PanelDivDireita = styled.div`
     margin: 0 auto;
 
     @media screen and (min-width:768px) and (max-width:1023px){
-        flex-direction: row;  
+        flex-direction: row; 
+        margin-bottom: 70px; 
     }
 
     @media screen and ( max-width:767px){
         flex-direction: column;  
     }
-
 
 `;
