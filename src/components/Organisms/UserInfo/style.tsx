@@ -18,6 +18,11 @@ export const InfoImageDiv = styled.div`
   & > img {
     width: 100%;
   }
+
+  @media screen and (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+  }
 `;
 
 export const InfoDiv = styled.div`
@@ -33,6 +38,16 @@ export const InfoDiv = styled.div`
 
   & > p {
     font-size: 24px;
+  }
+
+  @media screen and (max-width: 768px) {
+    & > h3 {
+      font-size: 1.2rem;
+    }
+
+    & > p {
+      font-size: 0.8rem;
+    }
   }
 `;
 
