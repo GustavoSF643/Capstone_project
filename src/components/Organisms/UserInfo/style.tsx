@@ -7,11 +7,18 @@ export const UserInfoDiv = styled.div`
   border-bottom: 2px solid var(--third);
   padding: 50px;
   position: relative;
+  min-height: 400px;
+  gap: 30px;
+
+  @media screen and (max-width: 768px) {
+    padding: 10px 0 50px 30px;
+    min-height: 250px;
+  }
 `;
 
 export const InfoImageDiv = styled.div`
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   overflow: hidden;
   border-radius: 100%;
 
@@ -20,8 +27,8 @@ export const InfoImageDiv = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
   }
 `;
 
@@ -30,7 +37,6 @@ export const InfoDiv = styled.div`
   flex-direction: column;
   align-items: left;
   color: var(--third);
-  margin: 50px;
 
   & > h3 {
     font-size: 32px;
@@ -41,6 +47,9 @@ export const InfoDiv = styled.div`
   }
 
   @media screen and (max-width: 768px) {
+    margin: 0;
+    margin-left: 20px;
+
     & > h3 {
       font-size: 1.2rem;
     }
