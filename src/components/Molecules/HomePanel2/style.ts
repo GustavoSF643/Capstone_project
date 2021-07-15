@@ -4,17 +4,14 @@ export const Panel2Div = styled.div`
     color: #694B3C;
     font-family: Roboto, 'Open Sans', sans-serif ; 
     width: 90%;
-    height:100vh;
-    padding: 10px; 
     display: flex; 
     flex-direction: row; 
     align-items: center;
     justify-content: space-around;
-    margin:0 auto; 
+    margin: 100px auto; 
 
     img{
-        width: 450px;
-        height: 400px; 
+        width: 400px; 
     }
 
     div{
@@ -23,16 +20,79 @@ export const Panel2Div = styled.div`
     }
 
     h2{
-        font-size: 45px ;
+        font-size: 40px ;
         color: #7A3B6C; 
         font-family: Taviraj;  
     }
 
     h4{
-        font-size: 20px;
+        font-size: 16px;
         color: #8B8B8B; 
         font-family: Taviraj;
         margin: 15px;     
     }
 
+    @media screen and (min-width:768px) and (max-width:1023px){
+        padding: 10px; 
+        display: flex; 
+        flex-direction: row; 
+        margin:0 auto; 
+
+    img{
+        width: 300px;
+        height: 260px; 
+    }
+
+    div{
+        text-align: center;
+        padding: 10px; 
+    }
+
+    h2{
+        font-size: 30px ;
+        color: #7A3B6C; 
+        font-family: Taviraj;  
+    }
+
+    h4{
+        font-size: 13px;
+        color: #8B8B8B; 
+        font-family: Taviraj;
+        margin: 15px;     
+    }
+    }
+
+    @media screen and ( max-width:767px){      
+         
+        padding: 10px; 
+         display: flex; 
+        flex-direction: column;    
+        margin:0 auto; 
+
+    img{
+        width: 250px;
+        height: 210px;
+       
+    }
+
+    div{
+        text-align: center;
+        padding: 10px; 
+    }
+
+    h2{
+        font-size: 30px ;
+        color: #7A3B6C; 
+        font-family: Taviraj;  
+    }
+
+    h4{
+        font-size: 13px;
+        color: #8B8B8B; 
+        font-family: Taviraj;
+        margin: 15px;     
+    }
+    }
+
 `;
+

@@ -16,13 +16,35 @@ export const Container = styled.button`
     width: 28px;
     height: 21px;
     margin-top: 4px;
-<<<<<<< HEAD
     margin-left: 8px; 
     z-index:2 ;
   }
-=======
-    margin-left: 8px;   
+
+  @media screen and (min-width:768px) and (max-width:1023px){
+    width: 230px;
+    height: 50px;
+    font-size: 18px;
+
+    img {
+      width: 17px;
+      height: 14px;
+      margin-top: 3px;
+      margin-left: 5px; 
+      z-index:2 ;
+    }
   }
 
->>>>>>> 7ce83ea18cfb3e96c1028d9eea99b679fc22e046
+  @media screen and ( max-width:767px){
+    width: 130px;
+    height: 35px;
+    font-size: 13px;
+
+    img {
+      width: 10px;
+      height: 10px;
+      margin-top: 3px;
+      margin-left: 3px; 
+      z-index:2 ;
+    }
+  }
 `;
