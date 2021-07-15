@@ -4,12 +4,10 @@ import backgroundHomePanel5 from "../../../assets/backgroundHomePanel5.png";
 export const Panel5Div = styled.div`
     color: #694B3C;
     font-family: Roboto, 'Open Sans', sans-serif ; 
-    width: 100vw;
-    padding: 20px; 
-    margin: 30px auto; 
+    width: 100%;
     background-image: url(${backgroundHomePanel5}); 
     background-repeat: no-repeat;
-    background-size: 100vw;
+    background-size: 100%;
 `;
 
 export const ImgPlus = styled.img`
