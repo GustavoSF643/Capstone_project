@@ -1,10 +1,8 @@
 import styled from "styled-components";
 
 export const Panel4Div = styled.div`
-    color: #694B3C;
-    font-family: Roboto, 'Open Sans', sans-serif ; 
+    font-family: Taviraj;
     width: 80vw;
-    height:80vh;
     padding: 10px; 
     display: flex; 
     flex-direction: row; 
@@ -14,16 +12,44 @@ export const Panel4Div = styled.div`
     text-align: center;
 
     h2{
-        font-size: 40px ;
-        color: #7A3B6C; 
-        font-family: Taviraj;  
+        font-size: 30px ;
+        color: #7A3B6C;       
     }
 
     h4{
-        font-size: 20px;
+        font-size: 17px;
         color: #8B8B8B; 
-        font-family: Taviraj;
         margin: 15px;     
+    }
+
+    @media screen and (min-width:768px) and (max-width:1023px){
+        flex-direction: row; 
+        
+        h2{
+            font-size: 25px ;
+            color: #7A3B6C;       
+        }
+
+        h4{
+            font-size: 15px;
+            color: #8B8B8B; 
+            margin: 15px;     
+        }
+    }
+
+    @media screen and ( max-width:767px){
+        flex-direction: column; 
+        
+        h2{
+            font-size: 30px ;
+            color: #7A3B6C;       
+        }
+
+        h4{
+            font-size: 16px;
+            color: #8B8B8B; 
+            margin: 15px;     
+        }
     }
 `;
 
@@ -34,7 +60,15 @@ export const PanelDivInterna = styled.div`
 `;
 
 export const ImgLayout = styled.img`
-    width: 600px;
-    height: 600x;
+    width: 550px;
     margin: 10px 20px;
+
+    @media screen and (min-width:768px) and (max-width:1023px){
+        width: 450px;
+        margin: 10px 20px;
+    }
+
+    @media screen and ( max-width:767px){
+        width: 300px;
+    }
 `;

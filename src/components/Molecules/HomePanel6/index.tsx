@@ -2,8 +2,24 @@ import {Panel6Div, PanelDivEsquerda,PanelDivDireita} from "./style";
 import ButtonHome2 from "../../Atomos/ButtonHome2";
 import patinha_botao from "../../../assets/patinha_botao.png";
 import {Link} from "react-router-dom"; 
+import CardComment from "../../Molecules/CardComment";
+import api from "../../../services/api";
+import { useEffect, useState } from "react";
 
 const HomePanel6 = () => {
+  const [rating, setRating] = useState([]);
+
+  const reloadRating = () => {
+    api
+      .get("rating")
+      .then((response) => setRating(response.data))
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    reloadRating();
+  }, []);
+
     return (
      <>    
        <Panel6Div>
@@ -18,7 +34,11 @@ const HomePanel6 = () => {
                     </Link>
                </PanelDivEsquerda> 
                <PanelDivDireita>
-                              
+                    {rating.map((item , index) => (
+                      index >= 2 && 
+                        <CardComment user={item} key={index} /> 
+                    ))}   
+                    
                </PanelDivDireita>   
        </Panel6Div> 
      </> 
