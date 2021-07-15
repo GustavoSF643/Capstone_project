@@ -21,24 +21,26 @@ const CardPet = ({ img, name, breed, gender, age, id }: CardPetProps) => {
     if (isLogin) {
       history.push(`/dashboard/${id}`);
     } else {
-      toast.info("É obrigatório estar logado!!")
+      toast.info("É obrigatório estar logado!!");
     }
   };
 
   return (
     <Card img={img} onClick={handleClick}>
-        {isLogin && <ButtonContainer onClick={(e) => e.stopPropagation()}>
-        <ButtonFavorites
-          pet={{
-            img: img,
-            name: name,
-            breed: breed,
-            gender: gender,
-            age: age,
-            id: id,
-          }}
-        />
-      </ButtonContainer>}
+      {isLogin && (
+        <ButtonContainer onClick={(e) => e.stopPropagation()}>
+          <ButtonFavorites
+            pet={{
+              img: img,
+              name: name,
+              breed: breed,
+              gender: gender,
+              age: age,
+              id: id,
+            }}
+          />
+        </ButtonContainer>
+      )}
 
       <CardInfo>
         <CardDescription>
