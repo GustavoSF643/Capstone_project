@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import backgroundHomePanel5 from "../../../assets/backgroundHomePanel5.png";
 
 export const Panel5Div = styled.div`
     color: #694B3C;
@@ -6,13 +7,9 @@ export const Panel5Div = styled.div`
     width: 100vw;
     padding: 20px; 
     margin: 30px auto; 
-
-`;
-
-export const Panel5Img = styled.img`
-    z-index: -1;
-    width:100vw;
-    position: absolute; 
+    background-image: url(${backgroundHomePanel5}); 
+    background-repeat: no-repeat;
+    background-size: 100vw;
 `;
 
 export const ImgPlus = styled.img`
@@ -53,17 +50,16 @@ export const Panel5DivInterna = styled.div`
     flex-direction: row; 
     align-items: center;
     justify-content: center;
-    width: 50vw;
-    margin: 0 auto; 
+    width: 50%;
     color: white; 
-    padding-top:70px; 
+    margin: 0 auto; 
 
     div{
         display: flex; 
         flex-direction: column; 
         align-items: center;
         justify-content: center;
-        width: 100vw;       
+        width: 100%;       
     }  
     
     p{
@@ -79,7 +75,6 @@ export const Panel5DivInterna = styled.div`
     }
 
     @media screen and ( max-width:767px){
-        padding-top:5px;
 
         p{
             font-size: 30px; 

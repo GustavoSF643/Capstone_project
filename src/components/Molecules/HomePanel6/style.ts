@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Panel6Div = styled.div`
     font-family: Taviraj;
     width: 90%;
-    height: 80vh; 
+    height: 70vh; 
     padding: 10px; 
     display: flex; 
     flex-direction: row; 
@@ -25,12 +25,12 @@ export const Panel6Div = styled.div`
 
     @media screen and (min-width:768px) and (max-width:1023px){
         flex-direction: column; 
-        height: 140vh; 
+        height: 100vh; 
     }
 
     @media screen and ( max-width:767px){
         flex-direction: column; 
-        height: 160vh;
+        height: 160vh; 
 
         h2{
             font-size: 35px ; 
@@ -52,7 +52,7 @@ export const PanelDivEsquerda = styled.div`
     margin: 20px 0;  
 
     @media screen and (min-width:768px) and (max-width:1023px){
-        margin: 30px auto; 
+        margin: 0 auto; 
         width: 90vw ;
     }
 
@@ -69,8 +69,7 @@ export const PanelDivDireita = styled.div`
     margin: 0 auto;
 
     @media screen and (min-width:768px) and (max-width:1023px){
-        flex-direction: row; 
-        margin-bottom: 70px; 
+        flex-direction: row;     
     }
 
     @media screen and ( max-width:767px){
