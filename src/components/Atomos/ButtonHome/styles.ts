@@ -45,4 +45,17 @@ export const Container = styled.button`
       margin-left: 3px; 
     }
   }
+
+  @media screen and (max-width:399px){
+    width: 110px;
+    height: 25px;
+    font-size: 10px;
+
+    img {
+      width: 8px;
+      height: 8px;
+      margin-top: 2px;
+      margin-left: 3px; 
+    }
+  }
 `;

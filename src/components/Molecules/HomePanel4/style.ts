@@ -51,6 +51,21 @@ export const Panel4Div = styled.div`
             margin: 15px;     
         }
     }
+
+    @media screen and (max-width:399px){
+        flex-direction: column; 
+        
+        h2{
+            font-size: 25px ;
+            color: #7A3B6C;       
+        }
+
+        h4{
+            font-size: 13px;
+            color: #8B8B8B; 
+            margin: 15px;     
+        }
+    }
 `;
 
 export const PanelDivInterna = styled.div`
@@ -70,5 +85,9 @@ export const ImgLayout = styled.img`
 
     @media screen and ( max-width:767px){
         width: 300px;
+    }
+
+    @media screen and (max-width:399px){
+        width: 250px;
     }
 `;

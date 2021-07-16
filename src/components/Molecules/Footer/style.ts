@@ -20,7 +20,12 @@ export const FooterDiv = styled.div`
     img{
         width: 200px;
         height: 75px;   
-    }      
+    }    
+    
+    @media screen and ( max-width:767px){
+        flex-direction: column;  
+        align-items: center;
+    }
 `;
 
 export const Div = styled.div`
