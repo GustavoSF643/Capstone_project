@@ -15,14 +15,13 @@ export const Panel3Div = styled.div`
         font-size: 45px ;
         color: #7A3B6C; 
         font-family: Taviraj;  
+        text-align: center; 
         margin-bottom: 0.5em;
     }
 
     @media screen and (min-width:768px) and (max-width:1023px){
         h2{
             font-size: 25px ; 
-            text-align: center; 
-            margin-bottom: 0.5em;
         }
     }
 
@@ -30,9 +29,13 @@ export const Panel3Div = styled.div`
 
         h2{
             font-size: 30px ; 
-            text-align: center; 
-            margin-bottom: 0.5em;
         }
+    }
+
+    @media screen and (max-width:399px){
+        h2{
+            font-size: 25px ; 
+        } 
     }
 `;
 
@@ -51,6 +54,11 @@ export const PanelDivInterna = styled.div`
         flex-direction: column; 
         margin: 7px ;
     }
+
+    @media screen and (max-width:399px){
+        flex-direction: column; 
+        margin: 5px ;
+    }
 `;
 
 export const ImgCard = styled.img`
@@ -66,5 +74,13 @@ export const ImgCard = styled.img`
 
     @media screen and ( max-width:767px){
         margin: 1em; 
+        width: 200px;
+        height: 150x;
+    }
+
+    @media screen and (max-width:399px){
+        width: 170px;
+        height: 120x;
+        margin:1em; 
     }
 `;

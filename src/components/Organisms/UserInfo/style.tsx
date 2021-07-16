@@ -5,9 +5,10 @@ export const UserInfoDiv = styled.div`
   align-items: center;
   justify-content: left;
   border-bottom: 2px solid var(--third);
-  padding: 50px;
+  padding: 40px;
+  padding-bottom: 70px;
   position: relative;
-  min-height: 400px;
+  min-height: 500px;
   gap: 30px;
 
   @media screen and (max-width: 768px) {

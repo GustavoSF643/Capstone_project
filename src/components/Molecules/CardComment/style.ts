@@ -10,6 +10,14 @@ export const Card = styled.div`
   font-size: 20px;
   font-family: var(--font-family-fourth);
   margin: 20px;
+
+  @media screen and ( max-width: 399px){
+    width: 235px;
+    height: 260px;
+    padding: 17px;
+    font-size: 15px;
+    margin: 15px;
+  }
 `;
 
 export const CardBody = styled.div`
@@ -32,6 +40,19 @@ export const CardBody = styled.div`
     max-height: 5em;
     line-height: 1.5em;
   }
+
+  @media screen and ( max-width: 399px){
+    h3 {
+      font-weight: 500;
+      margin: 5px;
+    }
+
+    p {
+      padding: 15px 0;
+      max-height: 5em;
+      line-height: 1.5em;
+    }
+  }
 `;
 
 export const CardInfo = styled.div`
@@ -46,6 +67,16 @@ export const CardInfo = styled.div`
     margin: 25px 15px;
     min-width: 100px;
   }
+
+  @media screen and ( max-width: 399px){
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      margin: 25px 5px;
+      min-width: 50px;
+    }
+  }
 `;
 
 export const RatingContainer = styled.div`
@@ -55,5 +86,13 @@ export const RatingContainer = styled.div`
     font-style: italic;
     font-weight: 300;
     margin-left: 30px;
+  }
+
+  @media screen and ( max-width: 399px){
+    h3 {
+      padding-top: 1px;
+      font-weight: 150;
+      margin-left: 15px;
+    }
   }
 `;

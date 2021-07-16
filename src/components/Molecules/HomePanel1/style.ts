@@ -4,27 +4,33 @@ export const Panel1Div = styled.div`
   color: #694b3c;
   font-family: Roboto, "Open Sans", sans-serif;
   width: 90vw;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 230, 0, 0.7) 73.05%,
+    rgba(255, 230, 0, 0) 100%
+  );
+  border-radius: 100px 100px 0px 0px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  text-align: center;
 
-  img {
-    z-index: -1;
-    width: 90vw;
-    position: absolute;
-    margin: 0 auto;
+  & > img {
+    width: 400px;
   }
 
-  div {
+  & > div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 40%;
   }
 
   @media screen and (min-width: 1024px) {
-    padding: 10px 0;
     margin: 0 auto;
 
     div {
-      width: 60%;
       height: 600px;
     }
 
@@ -46,9 +52,15 @@ export const Panel1Div = styled.div`
       width: 60%;
       height: 480px;
     }
+
+    & > img {
+      margin-top: 20px;
+      width: 300px;
+      margin-right: 65px;
+    }
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (min-width: 400px) and (max-width: 767px) {
     padding: 20px 0;
     margin: 10px auto 0;
 
@@ -67,12 +79,34 @@ export const Panel1Div = styled.div`
       height: 260px;
     }
 
+    & > img {
+      margin-top: 20px;
+      width: 120px;
+      max-height: 200px;
+    }
+  }
+
+  @media screen and (max-width: 399px) {
+    padding: 20px 0;
+    margin: 10px auto 0;
+    border-radius: 50px 50px 0px 0px;
+
+    & > img {
+      margin-top: 20px;
+      width: 120px;
+      max-height: 200px;
+    }
+
+    div {
+      width: 40%;
+    }
+
     h2 {
-      font-size: 1.3em;
+      font-size: 1.1em;
     }
 
     h4 {
-      font-size: 10px;
+      font-size: 8px;
       margin: 8px;
     }
   }

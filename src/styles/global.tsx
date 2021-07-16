@@ -46,6 +46,18 @@ const GlobalStyle = createGlobalStyle`
 		text-decoration: none;
 		font-family: var(--font-family-primary);
 	}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #694B3C; 
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aa5945; 
+}
 
 
 `;
