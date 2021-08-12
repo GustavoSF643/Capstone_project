@@ -12,7 +12,7 @@ const HomePanel3 = () => {
      <>    
        <Panel3Div>
                <PanelDivInterna> 
-                    <h2>Pets para adoção perto de voce!</h2>
+                    <h2>Pets para adoção perto de você!</h2>
                </PanelDivInterna> 
                <PanelDivInterna>
                     <ImgCard src={CardKelo}/>

@@ -13,9 +13,9 @@ const HomePanel2 = () => {
                     felizes de verdade. Adotar um animal é valorizar a vida. 
                     Um cão ou gato é capaz de sentir emoções – como dor e 
                     alegria/excitação – e por isso, sofre tanto quanto os 
-                    humanos.Se você pode mudar o destino de um animal carente, 
+                    humanos. Se você pode mudar o destino de um animal carente, 
                     por que não fazer isso?
-                    Falando em adotar, aproveite para conhecer os animaiszinhos 
+                    Falando em adotar, aproveite para conhecer os animaizinhos 
                     esperando por adoção. Seu próximo melhor amigo pode estar aqui! </h4>
             </div>
             <div>

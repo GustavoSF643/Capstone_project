@@ -11,7 +11,7 @@ const HomePanel1 = () => {
         <img src={dogHome} />
         <div>
           <h2>Encontre o amigo </h2>
-          <h2>ideal para voçê</h2>
+          <h2>ideal para você</h2>
           <h4>Ajude a fazer uma boa ação</h4>
           <Link to="/signup">
             <ButtonHome
